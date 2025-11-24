@@ -27,8 +27,8 @@ export default function Footer() {
         {/* Optional Contact Info */}
         <div className="mt-4 md:mt-0 text-center md:text-right">
           <p>
-            <a href="tel:+918868811108" className="hover:underline">
-              +91 8868811108
+            <a href="tel:+918868830011" className="hover:underline">
+              +91 8868830011
             </a>
           </p>
           <p>

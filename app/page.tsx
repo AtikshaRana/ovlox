@@ -28,11 +28,11 @@ export default function SupportPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="p-8 text-white ">
+          <div className=" text-white ">
 
             <div className="max-w-2xl mr-auto px-4 bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-lg text-white ">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Ovlox India Support Page
+                Ovlox India Support Team
               </h1>
 
               <h2 className="text-2xl md:text-3xl font-semibold mb-6">
