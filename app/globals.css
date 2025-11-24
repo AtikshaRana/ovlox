@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.container {
+  position: relative;
+  max-width: 1450px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  z-index: 3;
+}
