@@ -55,22 +55,22 @@ export default function FeatureTabs() {
 
 
   return (
-    <section className="py-4 md:py-16 bg-[#8cdff4] relative">
+    <section className="py-4 md:py-16 bg-gradient-to-b from-[#8cdff4] to-[#101828] relative">
 
       {/* DESKTOP BACKGROUND IMAGE */}
       <div
-        className="hidden md:block absolute inset-0  overflow-hidden z-0 m-5 rounded-3xl"
+        className="hidden md:block absolute inset-0 h-[400px] overflow-hidden z-0 my-10 "
         style={{
           backgroundImage: `url(${data[active].image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row gap-10 p-2 md:p-10">
+        <div className="flex flex-col md:flex-row gap-10 p-2 items-center ">
 
           {/* LEFT TABS */}
           <div className="w-full md:w-1/3 flex flex-col gap-4">
@@ -94,7 +94,7 @@ export default function FeatureTabs() {
           </div>
 
           {/* RIGHT SIDE CONTENT */}
-          <div className="flex-1 flex flex-col gap-6">
+          <div className="flex-1 flex flex-col gap-6 w-full ">
 
             {/* IMAGE PREVIEW CARD (Always Visible) */}
             <div className="rounded-3xl w-full md:w-[70%] h-[420px] md:h-[590px] overflow-hidden shadow-lg transition-transform duration-500 hover:scale-[1.02]">
@@ -115,7 +115,7 @@ export default function FeatureTabs() {
                   className="group flex items-center justify-between bg-white/30 backdrop-blur-md p-4 rounded-2xl 
                 border border-white/50 text-gray-800 md:text-white hover:bg-white/40 hover:shadow-md transition-all duration-300"
                 >
-                  <span className="text-lg font-medium">{link.label}</span>
+                  <span className="text-lg font-medium text-white ">{link.label}</span>
                   <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
                     →
                   </span>
