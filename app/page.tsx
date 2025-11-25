@@ -28,9 +28,9 @@ export default function SupportPage() {
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className=" text-white text-center ">
+            <div className=" text-white text-left ">
 
-              <div className="relative max-w-[800px] mx-auto px-4 p-8 text-white">
+              <div className="relative max-w-[800px] mr-auto px-4 p-8 text-white">
                 <div
                   className="
                     absolute inset-0 
