@@ -18,7 +18,7 @@ export default function SupportPage() {
           {/* Background Image */}
           <div className="absolute inset-0 ">
             <Image
-              src="/Airbrush-IMAGE-ENHANCER-1764057910991-1764057910992.jpg"
+              src="/BgBanner.jpg"
               alt="Hero Banner Background"
               fill
               sizes="100vw"
