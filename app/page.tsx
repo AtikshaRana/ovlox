@@ -22,7 +22,7 @@ export default function SupportPage() {
               alt="Hero Banner Background"
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-cover  object-center md:object-right"
               priority
             />
           </div>
@@ -31,15 +31,15 @@ export default function SupportPage() {
             <div className=" text-white text-center ">
 
               <div className="relative max-w-[800px] mx-auto px-4 p-8 text-white">
-              <div
- className="
- absolute inset-0 
- bg-gradient-to-b from-transparent to-black/40
- 
- rounded-xl 
- -z-10
-"
-></div>
+                <div
+                  className="
+                    absolute inset-0 
+                    bg-gradient-to-b from-transparent to-black/40
+                    
+                    rounded-xl 
+                    -z-10
+                    "
+                ></div>
 
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">
                   Ovlox India Support Team
