@@ -9,7 +9,10 @@ export default function FeatureTabs() {
       title: "Hardware Issues & Repairs",
       image: "/HardwareIssue.jpeg",
       links: [
-        { label: "Track Orders", url: "/track-orders" },
+        { label: "Handle Related ", url: "/track-orders" },
+        { label: "Lock Body Related", url: "/repair-policy" },
+        { label: "Dnd Related ", url: "/maintenance-schedule" },
+        { label: "Key Cylinder Related", url: "/track-orders" },
         { label: "Repair Policy", url: "/repair-policy" },
         { label: "Maintenance Schedule", url: "/maintenance-schedule" },
       ],
@@ -18,9 +21,13 @@ export default function FeatureTabs() {
       title: "Directional Adjustment Problems",
       image: "/direction-change.jpeg",
       links: [
+        { label: "", url: "/installation-guide" },
+        { label: "Adjustment Tips", url: "/adjustment-tips" },
+        { label: "Troubleshooting", url: "/troubleshooting" },
         { label: "Installation Guide", url: "/installation-guide" },
         { label: "Adjustment Tips", url: "/adjustment-tips" },
         { label: "Troubleshooting", url: "/troubleshooting" },
+        
       ],
     },
     {
@@ -59,7 +66,7 @@ export default function FeatureTabs() {
 
       {/* DESKTOP BACKGROUND IMAGE */}
       <div
-        className="hidden md:block absolute inset-0 h-[400px] overflow-hidden z-0 my-10 "
+        className="hidden md:block absolute inset-0 h-[200px] overflow-hidden z-0 mb-10 mt-0 "
         style={{
           backgroundImage: `url(${data[active].image})`,
           backgroundSize: "cover",

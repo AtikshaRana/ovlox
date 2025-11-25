@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
+/* ROOT THEME */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif);
+  --font-mono: var(--font-geist-mono, monospace);
+
+  --color-heading: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,11 +18,169 @@
   }
 }
 
+/* BODY */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
+/* HEADINGS DEFAULT */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+  font-family: var(--font-sans);
+  /* color: var(--color-heading); */
+}
+
+/* COLOR-WHITE UTILITY */
+.color-white {
+  color: #ffffff !important;
+}
+
+/* ---------------------------
+   HEADINGS RESPONSIVE
+--------------------------- */
+
+/* H1 */
+h1 {
+  font-size: 75px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 1400px) {
+  h1 { font-size: 56px; }
+}
+@media (max-width: 1200px) {
+  h1 { font-size: 50px; }
+}
+@media (max-width: 1024px) {
+  h1 { font-size: 45px; }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 40px; }
+}
+
+/* H2 */
+.h2, h2 {
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+@media (max-width: 1400px) {
+  .h2, h2 { font-size: 42px; }
+}
+@media (max-width: 1200px) {
+  .h2, h2 { font-size: 40px; }
+}
+@media (max-width: 1024px) {
+  .h2, h2 { font-size: 40px; }
+}
+@media (max-width: 768px) {
+  .h2, h2 { font-size: 28px; }
+}
+
+/* H3 */
+.h3, h3 {
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+@media (max-width: 1400px) {
+  .h3, h3 { font-size: 36px; }
+}
+@media (max-width: 1200px) {
+  .h3, h3 { font-size: 34px; }
+}
+@media (max-width: 1024px) {
+  .h3, h3 { font-size: 34px; }
+}
+@media (max-width: 768px) {
+  .h3, h3 { font-size: 28px; }
+}
+
+/* H4 */
+.h4, h4 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.17;
+}
+
+@media (max-width: 1400px) {
+  .h4, h4 { font-size: 30px; }
+}
+@media (max-width: 1024px) {
+  .h4, h4 { font-size: 30px; }
+}
+@media (max-width: 768px) {
+  .h4, h4 { font-size: 24px; }
+}
+
+/* H5 */
+.h5, h5 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 1200px) {
+  .h5, h5 { font-size: 20px; }
+}
+@media (max-width: 1024px) {
+  .h5, h5 { font-size: 20px; line-height: 1.2; }
+}
+@media (max-width: 600px) {
+  .h5, h5 { font-size: 20px; letter-spacing: -0.03em; }
+}
+
+/* H6 */
+h6 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.55 !important;
+}
+
+@media (max-width: 1500px) {
+  h6 { font-size: 18px; }
+}
+@media (max-width: 600px) {
+  h6 { font-size: 16px; }
+}
+
+/* ---------------------------
+   PARAGRAPH
+--------------------------- */
+p {
+  font-size: 18px;
+  line-height: 1.55 !important;
+  letter-spacing: 0.3px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+
+
+p.small-p {
+  margin-bottom: 18px;
+}
+
+/* SPAN */
+span {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.67;
+}
+
+/* LINKS */
+a {
+  color: blue;
+}
+
+/* CONTAINER */
 .container {
   position: relative;
   max-width: 1450px;
@@ -33,6 +190,9 @@ body {
   z-index: 3;
 }
 
+/* ---------------------------
+   BUBBLE ANIMATION
+--------------------------- */
 @keyframes bubble {
   0% {
     transform: translateY(100%) translateX(0) scale(0);
@@ -46,6 +206,7 @@ body {
     opacity: 0;
   }
 }
+
 .animate-bubble {
   animation-name: bubble;
   animation-timing-function: linear;
