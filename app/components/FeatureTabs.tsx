@@ -116,12 +116,19 @@ export default function FeatureTabs() {
             {/* LINKS WITH ANIMATION */}
             <div className="space-y-4">
               {data[active].links.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  className="group flex items-center justify-between bg-white/30 backdrop-blur-md p-4 rounded-2xl 
-                border border-white/50 text-gray-800 md:text-white hover:bg-white/40 hover:shadow-md transition-all duration-300"
-                >
+              <a
+              key={i}
+              href={link.url}
+              className="
+                group flex items-center justify-between
+                bg-white/10 backdrop-blur-md
+                p-4 rounded-2xl border border-white/20
+                text-white font-medium
+                hover:bg-white/20 hover:text-white/90
+                hover:shadow-lg hover:scale-105
+                transition-all duration-300 ease-out
+              "
+            >
                   <span className="text-lg font-medium text-white ">{link.label}</span>
                   <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
                     →
