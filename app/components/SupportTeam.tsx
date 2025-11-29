@@ -3,34 +3,34 @@ import Image from "next/image";
 
 const teamMembers = [
     {
-        name: "Jane Smith",
+        name: "Deependra Singh Rana",
         role: "Technical Support Specialist",
-        email: "jane.smith@example.com",
+        email: "deependra@ovloxindia.com",
         photo: "/team/Deependra.jpg",
     },
     {
-        name: "John Doe",
+        name: "Akash Kumar",
         role: "Customer Support Lead",
-        email: "john.doe@example.com",
+        email: "akash@ovloxindia.com",
         photo: "/team/Akash.jpg",
     },
     {
-        name: "Jane Smith",
+        name: "Ankan Sharma",
         role: "Technical Support Specialist",
-        email: "jane.smith@example.com",
+        email: "ankan@ovloxindia.com",
         photo: "/team/Ankan.jpg",
     },
     {
-        name: "Robert Brown",
+        name: "Anuj Pratap Singh",
         role: "Customer Success Manager",
-        email: "robert.brown@example.com",
+        email: "anuj@ovloxindia.com",
         photo: "/team/Anuj.jpg",
     },
 
     {
-        name: "Robert Brown",
+        name: "Harsh Kumar",
         role: "Customer Success Manager",
-        email: "robert.brown@example.com",
+        email: "harsh@ovloxindia.com",
         photo: "/team/Harsh.jpg",
     },
     // Add more members here
@@ -64,7 +64,7 @@ export default function SupportTeam() {
                 </div>
       
                 {/* Bottom Overlay */}
-                <div className="absolute bottom-0 left-0 w-full h-[40%] 
+                <div className="absolute bottom-0 left-0 w-full h-[50%] 
                                 bg-gradient-to-t from-[#101828]/90 via-[#101828]/70 to-transparent
                                 flex flex-col justify-center items-center text-center
                                 translate-y-0 md:translate-y-full md:group-hover:translate-y-0
