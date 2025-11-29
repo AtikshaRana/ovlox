@@ -12,7 +12,7 @@ const teamMembers = [
         name: "Akash Kumar",
         role: "Customer Support Lead",
         email: "akash@ovloxindia.com",
-        photo: "/team/Akash.jpg",
+        photo: "/team/AkashKumar.jpg",
     },
     {
         name: "Ankan Sharma",
