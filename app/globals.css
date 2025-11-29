@@ -222,3 +222,34 @@ span {
   opacity: 1;
   transform: translateY(0);
 }
+
+.title-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.title-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px; /* same as rounded-xl */
+  background: linear-gradient(to right,  #121b2b, #0000);
+  margin-top: -40px;
+  width: 170%;
+  height: 120%;
+  right: 0;
+  left: unset;
+  z-index: -1;
+}
+.featureTabs {
+  overflow: unset !important;
+  
+}
+.featureTabs .fixedContent {
+  width: 100%;
+  position: sticky;
+  right: 0px;
+  top: 140px;
+  align-self: flex-start;
+  height: fit-content;
+}

@@ -82,28 +82,30 @@ export default function FeatureTabs() {
   ];
 
   return (
-    <section className="py-4 md:py-16 bg-gradient-to-b from-[#8cdff4] to-[#101828] relative">
+    <section className="featureTabs py-4 md:py-16 bg-gradient-to-b from-[#8cdff4] to-[#101828] relative">
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row gap-10 p-2">
 
           {/* LEFT TABS */}
-          <div className="w-full md:w-1/3 flex flex-col gap-4">
-            {data.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setActive(index)}
-                className={`p-5 rounded-2xl cursor-pointer border text-lg font-semibold
-                  transition-transform duration-300 ease-in-out transform
-                  ${active === index
-                    ? "bg-gradient-to-r from-[#22598e] text-white shadow-xl scale-105"
-                    : "bg-slate-100 text-slate-800 hover:bg-slate-200 hover:shadow-md hover:scale-105"
-                  }
-                `}
-              >
-                {item.title}
-              </div>
-            ))}
+          <div className="w-full md:w-1/3 mt-[40px] ">
+            <div className="title-wrapper fixedContent flex flex-col gap-4 relative  ">
+              {data.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => setActive(index)}
+                  className={`p-5 rounded-2xl cursor-pointer border text-lg font-semibold
+                    transition-transform duration-300 ease-in-out transform
+                    ${active === index
+                      ? "bg-gradient-to-r from-[#22598e] text-white shadow-xl scale-105"
+                      : "bg-slate-100 text-slate-800 hover:bg-slate-200 hover:shadow-md hover:scale-105"
+                    }
+                  `}
+                >
+                  {item.title}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* RIGHT SIDE CONTENT */}
