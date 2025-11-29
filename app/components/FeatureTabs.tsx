@@ -7,7 +7,7 @@ export default function FeatureTabs() {
   const data = [
     {
       title: "Hardware Issues & Repairs",
-      image: "/HardwareIssue.jpeg",
+      image: "/HardwareIssue.jpg",
       links: [
         { label: "Handle Related ", url: "/track-orders" },
         { label: "Lock Body Related", url: "/repair-policy" },
@@ -19,9 +19,8 @@ export default function FeatureTabs() {
     },
     {
       title: "Directional Adjustment Problems",
-      image: "/direction-change.jpeg",
+      image: "/direction-change.jpg",
       links: [
-        { label: "", url: "/installation-guide" },
         { label: "Adjustment Tips", url: "/adjustment-tips" },
         { label: "Troubleshooting", url: "/troubleshooting" },
         { label: "Installation Guide", url: "/installation-guide" },
@@ -32,7 +31,7 @@ export default function FeatureTabs() {
     },
     {
       title: "Mobile App Assistance",
-      image: "/mobile-app.jpeg",
+      image: "/mobile-app.jpg",
       links: [
         { label: "Download App", url: "/download-app" },
         { label: "App Settings", url: "/app-settings" },
@@ -50,7 +49,7 @@ export default function FeatureTabs() {
     },
     {
       title: "AMC Plans for Locks",
-      image: "/AMC.jpeg",
+      image: "/AMC.jpg",
       links: [
         { label: "Subscription Plans", url: "/subscription-plans" },
         { label: "Coverage Details", url: "/coverage-details" },
@@ -77,7 +76,7 @@ export default function FeatureTabs() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row gap-10 p-2 items-center ">
+        <div className="flex flex-col md:flex-row gap-10 p-2  ">
 
           {/* LEFT TABS */}
           <div className="w-full md:w-1/3 flex flex-col gap-4">

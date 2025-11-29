@@ -18,7 +18,7 @@ export default function SupportPage() {
           {/* Background Image */}
           <div className="absolute inset-0 ">
             <Image
-              src="/BgBanner.jpg"
+              src="/ovlox-banner.jpg"
               alt="Hero Banner Background"
               fill
               sizes="100vw"
@@ -35,7 +35,6 @@ export default function SupportPage() {
                   className="
                     absolute inset-0 
                     bg-gradient-to-b from-transparent to-black/40
-                    
                     rounded-xl 
                     -z-10
                     "
