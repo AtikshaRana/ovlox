@@ -235,7 +235,7 @@ span {
   border-radius: 12px; /* same as rounded-xl */
   background: linear-gradient(to right,  #121b2b, #0000);
   margin-top: -40px;
-  width: 170%;
+  width: 200%;
   height: 120%;
   right: 0;
   left: unset;
