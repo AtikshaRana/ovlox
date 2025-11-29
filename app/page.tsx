@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Image from "next/image";
 
 export default function SupportPage() {
+  
   return (
     <>
 
@@ -13,12 +14,12 @@ export default function SupportPage() {
         <Header />
 
 
-        <section className="heroBanner relative py-16 flex items-center min-h-[500px] xl:min-h-[900px]">
+        <section className="heroBanner relative py-16 flex min-h-[500px] xl:min-h-[800px]">
 
           {/* Background Image */}
           <div className="absolute inset-0 ">
             <Image
-              src="/ovlox-banner.jpg"
+              src="/ovlox-banner2.jpg"
               alt="Hero Banner Background"
               fill
               sizes="100vw"
@@ -30,11 +31,11 @@ export default function SupportPage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className=" text-white text-left ">
 
-              <div className="relative max-w-[800px] mr-auto px-4 p-8 text-white">
+              <div className="relative max-w-[800px] mr-auto p-4 text-white">
                 <div
                   className="
                     absolute inset-0 
-                    bg-gradient-to-b from-transparent to-black/40
+                    bg-gradient-to-b from-[#0d2d46]/60 to-black/60
                     rounded-xl 
                     -z-10
                     "
@@ -45,7 +46,7 @@ export default function SupportPage() {
                 </h1>
 
                 <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-                  Welcome to Ovlox India Customer Support
+                  We're Here to Help You Anytime
                 </h2>
 
                 <p>

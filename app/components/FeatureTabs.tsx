@@ -64,7 +64,7 @@ export default function FeatureTabs() {
     <section className="py-4 md:py-16 bg-gradient-to-b from-[#8cdff4] to-[#101828] relative">
 
       {/* DESKTOP BACKGROUND IMAGE */}
-      <div
+      {/* <div
         className="hidden md:block absolute inset-0 h-[200px] overflow-hidden z-0 mb-10 mt-0 "
         style={{
           backgroundImage: `url(${data[active].image})`,
@@ -73,7 +73,7 @@ export default function FeatureTabs() {
         }}
       >
         <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row gap-10 p-2  ">
