@@ -73,6 +73,7 @@ export default function FeatureTabs() {
       image: "/SoftWareRelatedIssues.jpg",
       links: [
         { label: "TT Hotel software", url: "/firmware-update" },
+        { label: "Software Assitance", url: "/firmware-update" },
       ],
     },
     {
@@ -85,7 +86,7 @@ export default function FeatureTabs() {
         { label: "12-Month Plan – Starting at ₹583/month", url: "/how-to-enroll" },
       ],
     }
-    
+
   ];
 
   return (
@@ -126,6 +127,8 @@ export default function FeatureTabs() {
 
             {/* GROUPS + LINKS */}
             <div className="space-y-6">
+
+              {/* Grouped links (accordion) */}
               {data[active].groups && (
                 <div className="space-y-8">
                   {data[active].groups.map((group, gi) => (
@@ -142,38 +145,7 @@ export default function FeatureTabs() {
                       {/* Accordion Content */}
                       {openGroup === gi && (
                         <div className="space-y-4 pl-4">
-
-                          {/* Fixed Images for Mobile App Assistance */}
-                          {data[active].title === "Mobile App Assistance" && (
-                            <div className="flex flex-col gap-4">
-                              {group.groupTitle === "Hotel Locks" && (
-                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
-                                  <img src="/tt-hotel-app.jpeg" alt="Hotel Lock App" className="h-40 rounded-xl" />
-                                  <a
-                                    href="https://play.google.com/store/apps/details?id=com.sciener.hotela"
-                                    download="tt-hotel-app.jpeg"
-                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
-                                  >
-                                    Download
-                                  </a>
-                                </div>
-                              )}
-
-                              {group.groupTitle === "Residential Locks" && (
-                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
-                                  <img src="/smat-life.jpeg" alt="Residential Lock App" className="h-40 rounded-xl" />
-                                  <a
-                                    href="https://play.google.com/store/apps/details?id=com.tuya.smartlife"
-                                    download="smat-life.jpeg"
-                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
-                                  >
-                                    Download
-                                  </a>
-                                </div>
-                              )}
-                            </div>
-                          )}
-
+                          {/* Your Mobile App Assistance images/buttons */}
                           {/* Links */}
                           {group.links.map((link, li) => (
                             <a
@@ -192,31 +164,61 @@ export default function FeatureTabs() {
                 </div>
               )}
 
-              {/* Non-group links with optional download button */}
-              {!data[active].groups &&
-                data[active].links.map((link, i) => (
-                  <div key={i} className="space-y-2">
+              {/* Non-group links except AMC */}
+              {!data[active].groups && data[active].title !== "AMC Subscription Plans" && (
+                <div className="space-y-2">
+                  {data[active].links.map((link, i) => (
+                    <div key={i} className="space-y-2">
+                      <a
+                        href={link.url}
+                        className="group flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
+                      >
+                        <span>{link.label}</span>
+                        <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+                      </a>
+
+                      {/* Optional TT Hotel software button */}
+                      {link.label === "TT Hotel software" && (
+                        <a
+                          href="https://tthotel.sciener.com/"
+                          download
+                          className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                        >
+                          Download
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* AMC Section Links */}
+              {data[active].title === "AMC Subscription Plans" && (
+                <div className="space-y-2">
+                {data[active]?.links?.map((link, i) => (
                     <a
+                      key={i}
                       href={link.url}
                       className="group mb-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
                     >
                       <span>{link.label}</span>
                       <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
                     </a>
+                  ))}
 
-                    {/* Download button only for TT Hotel software */}
-                    {link.label === "TT Hotel software" && (
-                      <a
-                        href="/path-to-tt-hotel-software.exe" // replace with actual file path
-                        download
-                        className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
-                      >
-                        Download
-                      </a>
-                    )}
-                  </div>
-                ))}
+                  {/* AMC download button */}
+                  <a
+                    href="/AMCPLANS.docx"
+                    download
+                    className="w-full text-center px-4 py-2 mt-4 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                  >
+                    Download AMC Document
+                  </a>
+                </div>
+              )}
+
             </div>
+
 
           </div>
         </div>
