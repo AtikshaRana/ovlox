@@ -76,14 +76,16 @@ export default function FeatureTabs() {
       ],
     },
     {
-      title: "AMC Plans for Locks",
+      title: "AMC Subscription Plans",
       image: "/AMC.jpg",
       links: [
-        { label: "Subscription Plans", url: "/subscription-plans" },
-        { label: "Coverage Details", url: "/coverage-details" },
-        { label: "How to Enroll", url: "/how-to-enroll" },
+        { label: "1-Month Plan – Starting at ₹999/month", url: "/subscription-plans" },
+        { label: "3-Month Plan – Starting at ₹833/month", url: "/coverage-details" },
+        { label: "6-Month Plan – Starting at ₹666/month", url: "/how-to-enroll" },
+        { label: "12-Month Plan – Starting at ₹583/month", url: "/how-to-enroll" },
       ],
-    },
+    }
+    
   ];
 
   return (
