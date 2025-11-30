@@ -145,7 +145,48 @@ export default function FeatureTabs() {
                       {/* Accordion Content */}
                       {openGroup === gi && (
                         <div className="space-y-4 pl-4">
-                          {/* Your Mobile App Assistance images/buttons */}
+
+                          {/* Fixed Images for Mobile App Assistance */}
+                          {data[active].title === "Mobile App Assistance" && (
+                            <div className="flex flex-col gap-4">
+                              {group.groupTitle === "Hotel Locks" && (
+                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
+                                  <img
+                                    src="/tt-hotel-app.jpeg"
+                                    alt="Hotel Lock App"
+                                    className="h-40 rounded-xl"
+                                  />
+                                  <a
+                                    href="https://play.google.com/store/apps/details?id=com.sciener.hotela"
+                                    download="tt-hotel-app.jpeg"
+                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+
+                                  >
+                                    Download
+                                  </a>
+                                </div>
+                              )}
+
+                              {group.groupTitle === "Residential Locks" && (
+                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
+                                  <img
+                                    src="/smat-life.jpeg"
+                                    alt="Residential Lock App"
+                                    className="h-40 rounded-xl"
+                                  />
+                                  <a
+                                    href="https://play.google.com/store/apps/details?id=com.tuya.smartlife"
+                                    download="smat-life.jpeg"
+                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+
+                                  >
+                                    Download
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
                           {/* Links */}
                           {group.links.map((link, li) => (
                             <a
@@ -171,7 +212,7 @@ export default function FeatureTabs() {
                     <div key={i} className="space-y-2">
                       <a
                         href={link.url}
-                        className="group flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
+                        className="group my-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
                       >
                         <span>{link.label}</span>
                         <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
@@ -182,7 +223,7 @@ export default function FeatureTabs() {
                         <a
                           href="https://tthotel.sciener.com/"
                           download
-                          className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                          className="w-full mt-3 text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
                         >
                           Download
                         </a>
@@ -199,7 +240,7 @@ export default function FeatureTabs() {
                     <a
                       key={i}
                       href={link.url}
-                      className="group mb-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
+                      className="group my-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
                     >
                       <span>{link.label}</span>
                       <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
