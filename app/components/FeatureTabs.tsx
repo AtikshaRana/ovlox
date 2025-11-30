@@ -3,73 +3,78 @@ import { useState } from "react";
 
 export default function FeatureTabs() {
   const [active, setActive] = useState(0);
+  const [openGroup, setOpenGroup] = useState<number | null>(null);
+
+  const toggleGroup = (index: number) => {
+    setOpenGroup(openGroup === index ? null : index);
+  };
 
   const data = [
     {
       title: "Hardware Issues & Repairs",
       image: "/HardwareIssue.jpg",
       links: [
-        { label: "Handle Related ", url: "/track-orders" },
-        { label: "Lock Body Related", url: "/repair-policy" },
-        { label: "Dnd Related ", url: "/maintenance-schedule" },
-        { label: "Key Cylinder Related", url: "/track-orders" },
-        { label: "Repair Policy", url: "/repair-policy" },
-        { label: "Maintenance Schedule", url: "/maintenance-schedule" },
+        { label: "Handle Issue (Free / Loose Handle)", url: "/track-orders" },
+        { label: "Handle Issue (Stiff / Not Free Handle)", url: "/repair-policy" },
+        { label: "How to Reset the PCB", url: "/maintenance-schedule" },
+        { label: "PCB Not Working", url: "/track-orders" },
+        { label: "Lock Fitting Issue (Door Below 35mm)", url: "/repair-policy" },
+        { label: "Lock Body Rod Fitting Issue", url: "/maintenance-schedule" },
+        { label: "Correct Method for Lock Installation", url: "/maintenance-schedule" },
       ],
     },
-
     {
-      title: "Directional Adjustment Problems",
+      title: "Directional Related Problems",
       image: "/direction-change.jpg",
-
       groups: [
         {
           groupTitle: "Hotel Locks",
           links: [
-            { label: "Installation Guide", url: "/installation-guide" },
-            { label: "Adjustment Tips", url: "/adjustment-tips" },
-            { label: "Troubleshooting", url: "/troubleshooting" },
+            { label: "OSHL-01", url: "/installation-guide" },
+            { label: "OSHL-03", url: "/adjustment-tips" },
+            { label: "OSHL-04", url: "/troubleshooting" },
+            { label: "OSHL-05", url: "/troubleshooting" },
+            { label: "OSHL-06", url: "/troubleshooting" },
+            { label: "OSHL-07", url: "/troubleshooting" },
           ],
         },
         {
           groupTitle: "Residential Locks",
           links: [
-            { label: "Adjustment Tips", url: "/adjustment-tips" },
-            { label: "Troubleshooting", url: "/troubleshooting" },
+            { label: "OS-103", url: "/adjustment-tips" },
+            { label: "OS-104", url: "/troubleshooting" },
+            { label: "OS-105", url: "/troubleshooting" },
           ],
         },
-       
-      ],
-
-      links: [
-        { label: "Adjustment Tips", url: "/adjustment-tips" },
-        { label: "Troubleshooting", url: "/troubleshooting" },
-        { label: "Installation Guide", url: "/installation-guide" },
-        { label: "Adjustment Tips", url: "/adjustment-tips" },
-        { label: "Troubleshooting", url: "/troubleshooting" },
       ],
     },
-
     {
       title: "Mobile App Assistance",
       image: "/mobile-app.jpg",
-      links: [
-        { label: "Download App", url: "/download-app" },
-        { label: "App Settings", url: "/app-settings" },
-        { label: "Remote Access Guide", url: "/remote-access-guide" },
+      groups: [
+        {
+          groupTitle: "Hotel Locks",
+          links: [
+            { label: "Guide to App Access", url: "/installation-guide" },
+            { label: "Guide to Activating Locks", url: "/installation-guide" },
+          ],
+        },
+        {
+          groupTitle: "Residential Locks",
+          links: [
+            { label: "Guide to App Access", url: "/installation-guide" },
+            { label: "Guide to Activating Locks", url: "/installation-guide" },
+          ],
+        },
       ],
     },
-
     {
       title: "Software & Firmware Issues",
       image: "/SoftWareRelatedIssues.jpg",
       links: [
-        { label: "Firmware Update", url: "/firmware-update" },
-        { label: "Error Codes", url: "/error-codes" },
-        { label: "Bug Fix Guide", url: "/bug-fix-guide" },
+        { label: "TT Hotel software", url: "/firmware-update" },
       ],
     },
-
     {
       title: "AMC Plans for Locks",
       image: "/AMC.jpg",
@@ -83,24 +88,21 @@ export default function FeatureTabs() {
 
   return (
     <section className="featureTabs py-4 md:py-16 bg-gradient-to-b from-[#8cdff4] to-[#101828] relative">
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row gap-10 p-2">
 
-          {/* LEFT TABS */}
-          <div className="w-full md:w-1/3 mt-[40px] ">
-            <div className="title-wrapper fixedContent flex flex-col gap-4 relative  ">
+          {/* LEFT SIDE TABS */}
+          <div className="w-full md:w-1/3 mt-[40px]">
+            <div className="title-wrapper fixedContent flex flex-col gap-4">
               {data.map((item, index) => (
                 <div
                   key={index}
                   onClick={() => setActive(index)}
-                  className={`p-5 rounded-2xl cursor-pointer border text-lg font-semibold
-                    transition-transform duration-300 ease-in-out transform
-                    ${active === index
+                  className={`p-5 rounded-2xl cursor-pointer border text-lg font-semibold transition-transform duration-300
+                  ${active === index
                       ? "bg-gradient-to-r from-[#22598e] text-white shadow-xl scale-105"
                       : "bg-slate-100 text-slate-800 hover:bg-slate-200 hover:shadow-md hover:scale-105"
-                    }
-                  `}
+                    }`}
                 >
                   {item.title}
                 </div>
@@ -111,7 +113,7 @@ export default function FeatureTabs() {
           {/* RIGHT SIDE CONTENT */}
           <div className="flex-1 flex flex-col gap-6 w-full">
 
-            {/* IMAGE PREVIEW */}
+            {/* IMAGE */}
             <div className="rounded-3xl w-full md:w-[70%] h-[420px] md:h-[590px] overflow-hidden shadow-lg transition-transform duration-500">
               <img
                 src={data[active].image}
@@ -120,64 +122,98 @@ export default function FeatureTabs() {
               />
             </div>
 
-            {/* LINKS + GROUPS */}
+            {/* GROUPS + LINKS */}
             <div className="space-y-6">
-
-              {/* If this section has GROUPS */}
               {data[active].groups && (
                 <div className="space-y-8">
                   {data[active].groups.map((group, gi) => (
                     <div key={gi} className="space-y-3">
-                      <h3 className="text-xl font-semibold text-white">
-                        {group.groupTitle}
-                      </h3>
+                      {/* Accordion Title */}
+                      <button
+                        onClick={() => toggleGroup(gi)}
+                        className="w-full flex items-center justify-between text-left text-2xl font-bold text-yellow-200 bg-white/10 p-4 rounded-2xl border border-white/20 hover:bg-white/20 transition-all"
+                      >
+                        <span>{group.groupTitle}</span>
+                        <span className={`transform transition-transform duration-300 ${openGroup === gi ? "rotate-90" : ""}`}>▶</span>
+                      </button>
 
-                      <div className="space-y-4">
-                        {group.links.map((link, li) => (
-                          <a
-                            key={li}
-                            href={link.url}
-                            className="group flex items-center justify-between
-                              bg-white/10 backdrop-blur-md
-                              p-4 rounded-2xl border border-white/20
-                              text-white font-medium
-                              hover:bg-white/20 hover:text-white/90
-                              hover:shadow-lg hover:scale-105
-                              transition-all duration-300 ease-out"
-                          >
-                            <span className="text-lg">{link.label}</span>
-                            <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
-                              →
-                            </span>
-                          </a>
-                        ))}
-                      </div>
+                      {/* Accordion Content */}
+                      {openGroup === gi && (
+                        <div className="space-y-4 pl-4">
+
+                          {/* Fixed Images for Mobile App Assistance */}
+                          {data[active].title === "Mobile App Assistance" && (
+                            <div className="flex flex-col gap-4">
+                              {group.groupTitle === "Hotel Locks" && (
+                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
+                                  <img src="/tt-hotel-app.jpeg" alt="Hotel Lock App" className="h-40 rounded-xl" />
+                                  <a
+                                    href="https://play.google.com/store/apps/details?id=com.sciener.hotela"
+                                    download="tt-hotel-app.jpeg"
+                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                                  >
+                                    Download
+                                  </a>
+                                </div>
+                              )}
+
+                              {group.groupTitle === "Residential Locks" && (
+                                <div className="flex flex-col gap-2 w-[150px] h-[150px] mb-[50px]">
+                                  <img src="/smat-life.jpeg" alt="Residential Lock App" className="h-40 rounded-xl" />
+                                  <a
+                                    href="https://play.google.com/store/apps/details?id=com.tuya.smartlife"
+                                    download="smat-life.jpeg"
+                                    className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                                  >
+                                    Download
+                                  </a>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Links */}
+                          {group.links.map((link, li) => (
+                            <a
+                              key={li}
+                              href={link.url}
+                              className="group flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
+                            >
+                              <span>{link.label}</span>
+                              <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
               )}
 
-              {/* If no groups, show normal links */}
+              {/* Non-group links with optional download button */}
               {!data[active].groups &&
                 data[active].links.map((link, i) => (
-                  <a
-                    key={i}
-                    href={link.url}
-                    className="group flex items-center justify-between
-                      bg-white/10 backdrop-blur-md
-                      p-4 rounded-2xl border border-white/20
-                      text-white font-medium
-                      hover:bg-white/20 hover:text-white/90
-                      hover:shadow-lg hover:scale-105
-                      transition-all duration-300 ease-out"
-                  >
-                    <span className="text-lg">{link.label}</span>
-                    <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
-                      →
-                    </span>
-                  </a>
-                ))}
+                  <div key={i} className="space-y-2">
+                    <a
+                      href={link.url}
+                      className="group mb-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+                    </a>
 
+                    {/* Download button only for TT Hotel software */}
+                    {link.label === "TT Hotel software" && (
+                      <a
+                        href="/path-to-tt-hotel-software.exe" // replace with actual file path
+                        download
+                        className="w-full text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                      >
+                        Download
+                      </a>
+                    )}
+                  </div>
+                ))}
             </div>
 
           </div>
