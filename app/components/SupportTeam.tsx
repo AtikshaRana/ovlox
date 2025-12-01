@@ -45,22 +45,22 @@ const teamMembers = [
 export default function SupportTeam() {
     return (
         <section className="bg-gradient-to-b from-[#101828] to-[#8cdff4]">
-        <div className="max-w-7xl mx-auto px-4 py-12 relative">
+        <div className="container">
           {/* Background Gradient */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 opacity-80"></div>
+          <div className="absolute inset-0 -z-10"></div>
       
           <h1 className="text-4xl font-bold text-center mb-[60px]! text-white">Our Support Team</h1>
       
           {/* Flex container with wrap */}
-          <div className="flex flex-wrap justify-center gap-5">
+          <div className="flex flex-wrap justify-center w-[calc(100%+20px)] ml-[-10px]">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="relative w-full sm:w-[45%] md:w-[30%] rounded-xl overflow-hidden shadow-2xl 
-                           transform transition-transform duration-500  hover:shadow-blue-400/50 group"
+                className="relative w-full  mx-[10px] sm:w-[45%]  md:w-[calc(33.33%-20px)] rounded-xl overflow-hidden shadow-2xl 
+                           transform transition-transform duration-500  hover:shadow-blue-400/50 group mb-[20px]  "
               >
                 {/* Image */}
-                <div className="relative h-[435px] w-full">
+                <div className="relative h-[400px] w-full">
                   <Image
                     src={member.photo}
                     alt={member.name}
