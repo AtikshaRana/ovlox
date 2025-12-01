@@ -33,6 +33,12 @@ const teamMembers = [
         email: "harsh@ovloxindia.com",
         photo: "/team/Harsh.jpg",
     },
+    {
+      name: "Pushpendra Singh",
+      role: "Customer Success Manager",
+      email: "pushpendra@ovloxindia.com",
+      photo: "/team/pushpendra.jpg",
+    },
     // Add more members here
 ];
 
@@ -51,7 +57,7 @@ export default function SupportTeam() {
               <div
                 key={index}
                 className="relative w-full sm:w-[45%] md:w-[30%] rounded-xl overflow-hidden shadow-2xl 
-                           transform transition-transform duration-500 hover:-translate-y-3 hover:shadow-blue-400/50 group"
+                           transform transition-transform duration-500  hover:shadow-blue-400/50 group"
               >
                 {/* Image */}
                 <div className="relative h-[435px] w-full">
