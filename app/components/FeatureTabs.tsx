@@ -9,6 +9,13 @@ export default function FeatureTabs() {
     setOpenGroup(openGroup === index ? null : index);
   };
 
+  const [openLink, setOpenLink] = useState<number | null>(null);
+
+  const toggleLink = (index: number) => {
+    setOpenLink(openLink === index ? null : index);
+  };
+
+
   const data = [
     {
       title: "Hardware Issues & Repairs",
@@ -208,35 +215,71 @@ export default function FeatureTabs() {
               {/* Non-group links except AMC */}
               {!data[active].groups && data[active].title !== "AMC Subscription Plans" && (
                 <div className="space-y-2">
-                  {data[active].links.map((link, i) => (
-                    <div key={i} className="space-y-2">
-                      <a
-                        href={link.url}
-                        className="group my-5 flex items-center justify-between bg-white/10 p-4 rounded-2xl border border-white/20 text-white font-medium text-lg hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
-                      >
-                        <span>{link.label}</span>
-                        <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
-                      </a>
 
-                      {/* Optional TT Hotel software button */}
-                      {link.label === "TT Hotel software" && (
+                  {data[active]?.links?.map((link, i) => (
+                    <div key={i} className="space-y-2">
+
+                      {/* If TT Hotel software → make it expandable */}
+                      {link.label === "TT Hotel software" ? (
+                        <>
+                          <button
+                            onClick={() => toggleLink(i)}
+                            className="w-full flex items-center justify-between bg-white/10 p-4 
+                         rounded-2xl border border-white/20 text-white font-medium text-lg 
+                         hover:bg-white/20 transition-all"
+                          >
+                            <span>{link.label}</span>
+                            <span
+                              className={`text-2xl transition-transform duration-300 ${openLink === i ? "rotate-90" : ""
+                                }`}
+                            >
+                              ▶
+                            </span>
+                          </button>
+
+                          {/* Expandable content → download button */}
+                          {openLink === i && (
+                            <div className="pl-4 pt-2">
+                              <a
+                                href="https://tthotel.sciener.com/"
+                                download
+                                className="w-fit text-center inline-block px-4 py-2 bg-gradient-to-r 
+                             from-[#22598e] to-[#3ca0f0] text-white font-semibold 
+                             rounded-xl shadow-lg transition duration-300 
+                             hover:scale-105 hover:shadow-2xl"
+                              >
+                                Download
+                              </a>
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        /* All other links → simple normal link */
                         <a
-                          href="https://tthotel.sciener.com/"
-                          download
-                          className="w-full mt-3 text-center px-4 py-2 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
+                          href={link.url}
+                          className="group flex items-center justify-between bg-white/10 p-4 
+                       rounded-2xl border border-white/20 text-white font-medium text-lg 
+                       hover:bg-white/20 hover:shadow-lg hover:scale-105 transition-all"
                         >
-                          Download
+                          <span>{link.label}</span>
+                          <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">
+                            →
+                          </span>
                         </a>
                       )}
+
                     </div>
                   ))}
+
                 </div>
               )}
+
+
 
               {/* AMC Section Links */}
               {data[active].title === "AMC Subscription Plans" && (
                 <div className="space-y-2">
-                {data[active]?.links?.map((link, i) => (
+                  {data[active]?.links?.map((link, i) => (
                     <a
                       key={i}
                       href={link.url}
