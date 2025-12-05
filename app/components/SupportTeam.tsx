@@ -60,12 +60,12 @@ export default function SupportTeam() {
                            transform transition-transform duration-500  hover:shadow-blue-400/50 group mb-[20px]  "
               >
                 {/* Image */}
-                <div className="relative h-[400px] w-full">
+                <div className="relative h-[350px] xl:h-[450px]  w-full">
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
       
@@ -75,8 +75,8 @@ export default function SupportTeam() {
                                 flex flex-col justify-center items-center text-center
                                 translate-y-0 md:translate-y-full md:group-hover:translate-y-0
                                 transition-transform duration-500 px-4 py-3">
-                  <h3 className="text-xl font-semibold text-white mt-2 mb-1">{member.name}</h3>
-                  <p className="text-blue-100 mb-1">{member.role}</p>
+                  <h4 className="font-semibold text-white !my-[10px] ">{member.name}</h4>
+                  <p className="text-blue-100 !mb-[10px]">{member.role}</p>
                   <p className="text-blue-50 text-sm">{member.email}</p>
                 </div>
               </div>
