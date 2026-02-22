@@ -6,11 +6,14 @@ import { useEffect, useState, useRef } from "react";
 import { supportData, defaultSupportContent, SupportContent } from "../supportData";
 import { Play, Pause } from "lucide-react";
 
-export default function SupportDetailPage() {
-    const { slug } = useParams();
-    const router = useRouter();
+interface VideoPlayerProps {
+    videoUrl: string;
+    posterUrl: string;
+    title: string;
+}
+
+function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [content, setContent] = useState<SupportContent>(defaultSupportContent);
     const [isPlaying, setIsPlaying] = useState(false);
 
     const togglePlay = () => {
@@ -23,6 +26,54 @@ export default function SupportDetailPage() {
             setIsPlaying(!isPlaying);
         }
     };
+
+    return (
+        <div className="mb-10 last:mb-0">
+            {title && (
+                <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                    <Play size={18} className="text-[#3ca0f0]" />
+                    {title}
+                </h3>
+            )}
+            <div
+                className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl cursor-pointer min-h-[300px] max-h-[700px] flex items-center justify-center"
+                onClick={togglePlay}
+            >
+                <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
+                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform cursor-pointer">
+                        {isPlaying ? (
+                            <Pause size={40} className="text-white fill-white" />
+                        ) : (
+                            <Play size={40} className="text-white fill-white ml-2" />
+                        )}
+                    </div>
+                </div>
+                {/* Video Tag */}
+                <video
+                    ref={videoRef}
+                    className="max-w-full max-h-[700px] w-auto h-auto object-contain"
+                    poster={posterUrl}
+                    key={videoUrl} // Force reload on change
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    playsInline
+                >
+                    {videoUrl && <source src={videoUrl} type="video/mp4" />}
+                </video>
+                {!videoUrl && (
+                    <div className="absolute inset-x-4 bottom-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center z-20">
+                        Video tutorial for {title} will appear here.
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default function SupportDetailPage() {
+    const { slug } = useParams();
+    const router = useRouter();
+    const [content, setContent] = useState<SupportContent>(defaultSupportContent);
 
     useEffect(() => {
         if (slug) {
@@ -67,38 +118,25 @@ export default function SupportDetailPage() {
                         <span>Last Updated: Feb 2026</span>
                     </div>
 
-                    {/* Video Section */}
-                    <div
-                        className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl cursor-pointer min-h-[300px] max-h-[700px] flex items-center justify-center"
-                        onClick={togglePlay}
-                    >
-                        <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
-                            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform cursor-pointer">
-                                {isPlaying ? (
-                                    <Pause size={40} className="text-white fill-white" />
-                                ) : (
-                                    <Play size={40} className="text-white fill-white ml-2" />
-                                )}
-                            </div>
+                    {/* Videos Section */}
+                    {content.videos && content.videos.length > 0 ? (
+                        <div className="space-y-6">
+                            {content.videos.map((vid, idx) => (
+                                <VideoPlayer
+                                    key={idx}
+                                    title={vid.title}
+                                    videoUrl={vid.url}
+                                    posterUrl={content.posterUrl}
+                                />
+                            ))}
                         </div>
-                        {/* Video Tag */}
-                        <video
-                            ref={videoRef}
-                            className="max-w-full max-h-[700px] w-auto h-auto object-contain"
-                            poster={content.posterUrl}
-                            key={content.videoUrl} // Force reload on change
-                            onPlay={() => setIsPlaying(true)}
-                            onPause={() => setIsPlaying(false)}
-                            playsInline
-                        >
-                            {content.videoUrl && <source src={content.videoUrl} type="video/mp4" />}
-                        </video>
-                        {!content.videoUrl && (
-                            <div className="absolute inset-x-4 bottom-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center z-20">
-                                Video tutorial for {content.title} will appear here.
-                            </div>
-                        )}
-                    </div>
+                    ) : (
+                        <VideoPlayer
+                            title={content.title}
+                            videoUrl={content.videoUrl || ""}
+                            posterUrl={content.posterUrl}
+                        />
+                    )}
                 </div>
 
                 {/* Summary Content */}

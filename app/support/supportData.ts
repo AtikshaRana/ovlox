@@ -1,6 +1,12 @@
+export interface SupportVideo {
+    title: string;
+    url: string;
+}
+
 export interface SupportContent {
     title: string;
-    videoUrl?: string;
+    videoUrl?: string; // Kept for legacy/single video support
+    videos?: SupportVideo[];
     posterUrl: string;
     summary: string;
     steps: string[];
@@ -71,9 +77,12 @@ export const supportData: Record<string, SupportContent> = {
     // Hotel Locks
     "oshl-01": {
         title: "OSHL-01 Support Guide",
-        videoUrl: "/videos/OSHL-01.mp4",
+        videos: [
+            { title: "OSHL-01 Support Guide", url: "/videos/OSHL-01.mp4" },
+            { title: "OSHL-01 Lock Body", url: "/videos/OSHL01-lock-body.mp4" }
+        ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
-        summary: "Comprehensive guide for the OSHL-01 hotel lock model.",
+        summary: "Comprehensive guide for the OSHL-01 hotel lock model. This guide covers the main setup and specific lock body installation.",
         steps: [
             "Installation requirements and door prep.",
             "Setting up the hotel management system.",
@@ -127,6 +136,80 @@ export const supportData: Record<string, SupportContent> = {
             "Software registration and setup.",
             "Emergency power and key usage.",
             "Contact support for OSHL-07 specific queries."
+        ]
+    },
+    // Residential Locks
+    "os-103": {
+        title: "OS-103 Support Guide",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "Support resources for the OS-103 residential smart lock.",
+        steps: [
+            "Setting up the OS-103 for home use.",
+            "Connecting to the Smart Life app.",
+            "Managing family member access.",
+            "Battery check and maintenance."
+        ]
+    },
+    "os-104": {
+        title: "OS-104 Support Guide",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "Detailed guide for the OS-104 residential model.",
+        steps: [
+            "Initial setup and fingerprint registration.",
+            "Configuring access codes and temporary keys.",
+            "App integration and remote unlocking.",
+            "Troubleshooting connectivity issues."
+        ]
+    },
+    "os-105": {
+        title: "OS-105 Support Guide",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "Comprehensive support for the OS-105 series.",
+        steps: [
+            "Installation steps for OS-105.",
+            "Pairing with your home Wi-Fi/Bluetooth.",
+            "Adjusting volume and notification settings.",
+            "Manual key usage and emergency access."
+        ]
+    },
+    // More Hardware Issues
+    "lock-fitting-issue-door-below-35mm": {
+        title: "Lock Fitting Issue (Door Below 35mm)",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "How to handle lock installation on doors with thickness less than 35mm.",
+        steps: [
+            "Measure the door thickness accurately.",
+            "Use the provided spacers to adjust for thinner doors.",
+            "Ensure the screws are trimmed correctly if they are too long.",
+            "Test the stability of the lock after fitting."
+        ]
+    },
+    "lock-body-rod-fitting-issue": {
+        title: "Lock Body Rod Fitting Issue",
+        videoUrl: "/videos/OSHL01-lock-body.mp4",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "Troubleshooting rod alignment and fitting issues within the lock body.",
+        steps: [
+            "Identify the rod alignment within the mortise.",
+            "Check for any bends or obstructions in the rod path.",
+            "Ensure the rod is correctly engaged with the handle mechanism.",
+            "Watch the video tutorial for visual alignment tips."
+        ]
+    },
+    "correct-method-for-lock-installation": {
+        title: "Correct Method for Lock Installation",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "The standard recommended procedure for installing Ovlox smart locks.",
+        steps: [
+            "Prepare the door using the provided template.",
+            "Install the lock body/mortise first.",
+            "Connect the front and back panel wires carefully.",
+            "Secure the panels and insert batteries to test."
         ]
     },
     "software-setup-installation": {
