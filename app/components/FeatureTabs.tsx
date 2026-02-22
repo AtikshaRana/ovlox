@@ -16,18 +16,27 @@ export default function FeatureTabs() {
   };
 
 
+  // Helper function to generate slugs from labels
+  const generateSlug = (label: string) => {
+    return label
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, "") // Remove special characters
+      .trim()
+      .replace(/\s+/g, "-"); // Replace spaces with hyphens
+  };
+
   const data = [
     {
       title: "Hardware Issues & Repairs",
       image: "/HardwareIssue.jpg",
       links: [
-        { label: "Handle Issue (Free / Loose Handle)", url: "/track-orders" },
-        { label: "Handle Issue (Stiff / Not Free Handle)", url: "/repair-policy" },
-        { label: "How to Reset the PCB", url: "/maintenance-schedule" },
-        { label: "PCB Not Working", url: "/track-orders" },
-        { label: "Lock Fitting Issue (Door Below 35mm)", url: "/repair-policy" },
-        { label: "Lock Body Rod Fitting Issue", url: "/maintenance-schedule" },
-        { label: "Correct Method for Lock Installation", url: "/maintenance-schedule" },
+        { label: "Handle Issue (Free / Loose Handle)", url: `/support/${generateSlug("Handle Issue (Free / Loose Handle)")}` },
+        { label: "Handle Issue (Stiff / Not Free Handle)", url: `/support/${generateSlug("Handle Issue (Stiff / Not Free Handle)")}` },
+        { label: "How to Reset the PCB", url: `/support/${generateSlug("How to Reset the PCB")}` },
+        { label: "PCB Not Working", url: `/support/${generateSlug("PCB Not Working")}` },
+        { label: "Lock Fitting Issue (Door Below 35mm)", url: `/support/${generateSlug("Lock Fitting Issue (Door Below 35mm)")}` },
+        { label: "Lock Body Rod Fitting Issue", url: `/support/${generateSlug("Lock Body Rod Fitting Issue")}` },
+        { label: "Correct Method for Lock Installation", url: `/support/${generateSlug("Correct Method for Lock Installation")}` },
       ],
     },
     {
@@ -37,20 +46,20 @@ export default function FeatureTabs() {
         {
           groupTitle: "Hotel Locks",
           links: [
-            { label: "OSHL-01", url: "/installation-guide" },
-            { label: "OSHL-03", url: "/adjustment-tips" },
-            { label: "OSHL-04", url: "/troubleshooting" },
-            { label: "OSHL-05", url: "/troubleshooting" },
-            { label: "OSHL-06", url: "/troubleshooting" },
-            { label: "OSHL-07", url: "/troubleshooting" },
+            { label: "OSHL-01", url: `/support/${generateSlug("OSHL-01")}` },
+            { label: "OSHL-03", url: `/support/${generateSlug("OSHL-03")}` },
+            { label: "OSHL-04", url: `/support/${generateSlug("OSHL-04")}` },
+            { label: "OSHL-05", url: `/support/${generateSlug("OSHL-05")}` },
+            { label: "OSHL-06", url: `/support/${generateSlug("OSHL-06")}` },
+            { label: "OSHL-07", url: `/support/${generateSlug("OSHL-07")}` },
           ],
         },
         {
           groupTitle: "Residential Locks",
           links: [
-            { label: "OS-103", url: "/adjustment-tips" },
-            { label: "OS-104", url: "/troubleshooting" },
-            { label: "OS-105", url: "/troubleshooting" },
+            { label: "OS-103", url: `/support/${generateSlug("OS-103")}` },
+            { label: "OS-104", url: `/support/${generateSlug("OS-104")}` },
+            { label: "OS-105", url: `/support/${generateSlug("OS-105")}` },
           ],
         },
       ],
@@ -62,15 +71,15 @@ export default function FeatureTabs() {
         {
           groupTitle: "Hotel Locks",
           links: [
-            { label: "Guide to App Access", url: "/installation-guide" },
-            { label: "Guide to Activating Locks", url: "/installation-guide" },
+            { label: "Guide to App Access", url: `/support/${generateSlug("Guide to App Access")}` },
+            { label: "Guide to Activating Locks", url: `/support/${generateSlug("Guide to Activating Locks")}` },
           ],
         },
         {
           groupTitle: "Residential Locks",
           links: [
-            { label: "Guide to App Access", url: "/installation-guide" },
-            { label: "Guide to Activating Locks", url: "/installation-guide" },
+            { label: "Guide to App Access", url: `/support/${generateSlug("Guide to App Access")}` },
+            { label: "Guide to Activating Locks", url: `/support/${generateSlug("Guide to Activating Locks")}` },
           ],
         },
       ],
@@ -79,18 +88,18 @@ export default function FeatureTabs() {
       title: "Software & Firmware Issues",
       image: "/SoftWareRelatedIssues.jpg",
       links: [
-        { label: "TT Hotel software", url: "/firmware-update" },
-        { label: "Software Assitance", url: "/firmware-update" },
+        { label: "TT Hotel software", url: "/firmware-update" }, // Keeping this as is since it has a specific download behavior
+        { label: "Software Assitance", url: `/support/${generateSlug("Software Assitance")}` },
       ],
     },
     {
       title: "AMC Subscription Plans",
       image: "/AMC.jpg",
       links: [
-        { label: "1-Month Plan – Starting at ₹999/month", url: "/subscription-plans" },
-        { label: "3-Month Plan – Starting at ₹833/month", url: "/coverage-details" },
-        { label: "6-Month Plan – Starting at ₹666/month", url: "/how-to-enroll" },
-        { label: "12-Month Plan – Starting at ₹583/month", url: "/how-to-enroll" },
+        { label: "1-Month Plan – Starting at ₹999/month", url: `/support/${generateSlug("1-Month Plan – Starting at ₹999/month")}` },
+        { label: "3-Month Plan – Starting at ₹833/month", url: `/support/${generateSlug("3-Month Plan – Starting at ₹833/month")}` },
+        { label: "6-Month Plan – Starting at ₹666/month", url: `/support/${generateSlug("6-Month Plan – Starting at ₹666/month")}` },
+        { label: "12-Month Plan – Starting at ₹583/month", url: `/support/${generateSlug("12-Month Plan – Starting at ₹583/month")}` },
       ],
     }
 
