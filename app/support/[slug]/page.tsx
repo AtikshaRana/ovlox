@@ -57,6 +57,7 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                     playsInline
+                    controls
                 >
                     {videoUrl && <source src={videoUrl} type="video/mp4" />}
                 </video>

@@ -26,7 +26,7 @@ export const supportData: Record<string, SupportContent> = {
         ]
     },
     "oshl-03": {
-        title: "OSHL-03 Support Guide",
+        title: "OSHL-03 Lock Body",
         videoUrl: "/videos/OSHL-03.mp4",
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "The OSHL-03 is a premium hotel smart lock. This guide covers setup, battery replacement, and standard troubleshooting for this model.",
@@ -78,7 +78,7 @@ export const supportData: Record<string, SupportContent> = {
     "oshl-01": {
         title: "OSHL-01 Support Guide",
         videos: [
-            { title: "OSHL-01 Support Guide", url: "/videos/OSHL-01.mp4" },
+            { title: "OSHL-01 Handle Direction", url: "/videos/OSHL-01.mp4" },
             { title: "OSHL-01 Lock Body", url: "/videos/OSHL01-lock-body.mp4" }
         ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
