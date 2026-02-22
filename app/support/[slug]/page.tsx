@@ -67,12 +67,12 @@ export default function SupportDetailPage() {
                         <span>Last Updated: Feb 2026</span>
                     </div>
 
-                    {/* Video Placeholder */}
+                    {/* Video Section */}
                     <div
-                        className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-800 border border-white/10 relative group shadow-inner cursor-pointer"
+                        className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl cursor-pointer min-h-[300px] max-h-[700px] flex items-center justify-center"
                         onClick={togglePlay}
                     >
-                        <div className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
+                        <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
                             <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform cursor-pointer">
                                 {isPlaying ? (
                                     <Pause size={40} className="text-white fill-white" />
@@ -84,16 +84,17 @@ export default function SupportDetailPage() {
                         {/* Video Tag */}
                         <video
                             ref={videoRef}
-                            className="w-full h-full object-cover"
+                            className="max-w-full max-h-[700px] w-auto h-auto object-contain"
                             poster={content.posterUrl}
                             key={content.videoUrl} // Force reload on change
                             onPlay={() => setIsPlaying(true)}
                             onPause={() => setIsPlaying(false)}
+                            playsInline
                         >
                             {content.videoUrl && <source src={content.videoUrl} type="video/mp4" />}
                         </video>
                         {!content.videoUrl && (
-                            <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center z-20">
+                            <div className="absolute inset-x-4 bottom-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center z-20">
                                 Video tutorial for {content.title} will appear here.
                             </div>
                         )}

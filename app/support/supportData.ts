@@ -71,7 +71,7 @@ export const supportData: Record<string, SupportContent> = {
     // Hotel Locks
     "oshl-01": {
         title: "OSHL-01 Support Guide",
-        videoUrl: "",
+        videoUrl: "/videos/OSHL-01.mp4",
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Comprehensive guide for the OSHL-01 hotel lock model.",
         steps: [
