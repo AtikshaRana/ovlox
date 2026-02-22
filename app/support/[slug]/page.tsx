@@ -18,12 +18,11 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
 
     const togglePlay = () => {
         if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
+            if (videoRef.current.paused) {
                 videoRef.current.play();
+            } else {
+                videoRef.current.pause();
             }
-            setIsPlaying(!isPlaying);
         }
     };
 
@@ -36,11 +35,14 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
                 </h3>
             )}
             <div
-                className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl cursor-pointer min-h-[300px] max-h-[700px] flex items-center justify-center"
-                onClick={togglePlay}
+                className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl min-h-[300px] max-h-[700px] flex items-center justify-center"
             >
-                <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
-                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform cursor-pointer">
+                {/* Custom Overlay - Big Play/Pause Button */}
+                <div
+                    className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 cursor-pointer ${isPlaying ? 'opacity-0 pointer-events-none group-hover:opacity-100' : 'opacity-100'}`}
+                    onClick={togglePlay}
+                >
+                    <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform">
                         {isPlaying ? (
                             <Pause size={40} className="text-white fill-white" />
                         ) : (
@@ -48,16 +50,18 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
                         )}
                     </div>
                 </div>
+
                 {/* Video Tag */}
                 <video
                     ref={videoRef}
-                    className="max-w-full max-h-[700px] w-auto h-auto object-contain"
+                    className="max-w-full max-h-[700px] w-auto h-auto object-contain cursor-pointer"
                     poster={posterUrl}
                     key={videoUrl} // Force reload on change
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                     playsInline
                     controls
+                    onClick={togglePlay}
                 >
                     {videoUrl && <source src={videoUrl} type="video/mp4" />}
                 </video>
