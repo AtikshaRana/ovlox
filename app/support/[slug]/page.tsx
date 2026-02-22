@@ -16,7 +16,8 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const togglePlay = () => {
+    const togglePlay = (e?: React.MouseEvent) => {
+        if (e) e.stopPropagation();
         if (videoRef.current) {
             if (videoRef.current.paused) {
                 videoRef.current.play();
@@ -35,11 +36,12 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
                 </h3>
             )}
             <div
-                className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl min-h-[300px] max-h-[700px] flex items-center justify-center"
+                className="w-full rounded-2xl overflow-hidden bg-black/60 backdrop-blur-sm border border-white/10 relative group shadow-2xl min-h-[300px] max-h-[700px] flex items-center justify-center cursor-pointer"
             >
                 {/* Custom Overlay - Big Play/Pause Button */}
+                {/* We use bottom-20 (80px) to ensure we don't block the native controls/seekbar */}
                 <div
-                    className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-all z-10 cursor-pointer ${isPlaying ? 'opacity-0 pointer-events-none group-hover:opacity-100' : 'opacity-100'}`}
+                    className={`absolute inset-x-0 top-0 bottom-20 flex items-center justify-center bg-black/10 transition-all z-10 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
                     onClick={togglePlay}
                 >
                     <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform">
@@ -54,14 +56,13 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
                 {/* Video Tag */}
                 <video
                     ref={videoRef}
-                    className="max-w-full max-h-[700px] w-auto h-auto object-contain cursor-pointer"
+                    className="max-w-full max-h-[700px] w-auto h-auto object-contain"
                     poster={posterUrl}
                     key={videoUrl} // Force reload on change
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                     playsInline
                     controls
-                    onClick={togglePlay}
                 >
                     {videoUrl && <source src={videoUrl} type="video/mp4" />}
                 </video>
