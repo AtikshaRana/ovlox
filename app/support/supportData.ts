@@ -81,6 +81,54 @@ export const supportData: Record<string, SupportContent> = {
             "Battery maintenance and emergency access."
         ]
     },
+    "oshl-04": {
+        title: "OSHL-04 Support Guide",
+        videoUrl: "/videos/OSHL-04.mp4",
+        posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
+        summary: "Step-by-step tutorial for setting up and managing your OSHL-04 digital hotel lock.",
+        steps: [
+            "Check all components in the OSHL-04 package.",
+            "Install the mortise and align the external panels.",
+            "Initialize the lock using the management software.",
+            "Test card access and manual key override."
+        ]
+    },
+    "oshl-05": {
+        title: "OSHL-05 Support Guide",
+        videoUrl: "",
+        posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
+        summary: "Support resources for the OSHL-05 advanced hotel security lock.",
+        steps: [
+            "Mounting the OSHL-05 on standard hotel doors.",
+            "Configuring wireless connectivity (if applicable).",
+            "Managing user permissions and audit trails.",
+            "Routine maintenance and cleaning tips."
+        ]
+    },
+    "oshl-06": {
+        title: "OSHL-06 Support Guide",
+        videoUrl: "/videos/OSHL-06.mp4",
+        posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
+        summary: "Technical documentation and video tutorials for the OSHL-06 model.",
+        steps: [
+            "Unboxing and verifying the OSHL-06 kit.",
+            "Wiring and battery installation guide.",
+            "Syncing with the central management server.",
+            "Troubleshooting common access issues."
+        ]
+    },
+    "oshl-07": {
+        title: "OSHL-07 Support Guide",
+        videoUrl: "",
+        posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
+        summary: "Official support page for the Ovlox OSHL-07 series hotel locks.",
+        steps: [
+            "Hardware installation and alignment check.",
+            "Software registration and setup.",
+            "Emergency power and key usage.",
+            "Contact support for OSHL-07 specific queries."
+        ]
+    },
     "software-setup-installation": {
         title: "Software Setup & Installation",
         videoUrl: "",
