@@ -31,6 +31,56 @@ export const supportData: Record<string, SupportContent> = {
             "Follow the app pairing instructions to sync with the central system."
         ]
     },
+    // Hardware Issues
+    "handle-issue-stiff-not-free-handle": {
+        title: "Handle Issue (Stiff / Not Free Handle)",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "If your lock handle feels stiff or doesn't return to its original position, follow these maintenance steps.",
+        steps: [
+            "Inspect the handle for any physical obstructions.",
+            "Apply a small amount of lubricant to the handle pivot if necessary.",
+            "Check if the handle spring is correctly seated.",
+            "Consult the manual if the stiffness persists after cleaning."
+        ]
+    },
+    "how-to-reset-the-pcb": {
+        title: "How to Reset the PCB",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "A PCB reset can resolve connectivity or software glitches. Follow these steps to safely reset your lock's internal controller.",
+        steps: [
+            "Locate the reset button (usually near the battery compartment or on the main PCB).",
+            "Press and hold the button for 10 seconds until you hear a beep.",
+            "The lock will enter setup mode.",
+            "Reconfigure your settings via the mobile app."
+        ]
+    },
+    "pcb-not-working": {
+        title: "PCB Not Working",
+        videoUrl: "",
+        posterUrl: "/HardwareIssue.jpg",
+        summary: "Troubleshooting steps for when the lock's main controller (PCB) is unresponsive.",
+        steps: [
+            "Ensure the batteries are fresh and correctly oriented.",
+            "Check the connection cables between the front and back panels.",
+            "Look for any signs of moisture or damage on the PCB.",
+            "Contact technical support if the board remains dead."
+        ]
+    },
+    // Hotel Locks
+    "oshl-01": {
+        title: "OSHL-01 Support Guide",
+        videoUrl: "",
+        posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
+        summary: "Comprehensive guide for the OSHL-01 hotel lock model.",
+        steps: [
+            "Installation requirements and door prep.",
+            "Setting up the hotel management system.",
+            "Issuing guest cards and master cards.",
+            "Battery maintenance and emergency access."
+        ]
+    },
     "software-setup-installation": {
         title: "Software Setup & Installation",
         videoUrl: "",

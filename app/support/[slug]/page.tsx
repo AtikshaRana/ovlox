@@ -2,13 +2,27 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supportData, defaultSupportContent, SupportContent } from "../supportData";
+import { Play, Pause } from "lucide-react";
 
 export default function SupportDetailPage() {
     const { slug } = useParams();
     const router = useRouter();
+    const videoRef = useRef<HTMLVideoElement>(null);
     const [content, setContent] = useState<SupportContent>(defaultSupportContent);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
 
     useEffect(() => {
         if (slug) {
@@ -35,10 +49,10 @@ export default function SupportDetailPage() {
                 {/* Back Button */}
                 <button
                     onClick={() => router.back()}
-                    className="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
+                    className="mb-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors group cursor-pointer"
                 >
                     <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
-                    <span>Back to Support</span>
+                    <span className="cursor-pointer">Back to Support</span>
                 </button>
 
                 {/* Header Section */}
@@ -54,22 +68,32 @@ export default function SupportDetailPage() {
                     </div>
 
                     {/* Video Placeholder */}
-                    <div className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-800 border border-white/10 relative group shadow-inner">
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all cursor-pointer">
-                            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-4xl shadow-2xl transform group-hover:scale-110 transition-transform">
-                                ▶
+                    <div
+                        className="aspect-video w-full rounded-2xl overflow-hidden bg-slate-800 border border-white/10 relative group shadow-inner cursor-pointer"
+                        onClick={togglePlay}
+                    >
+                        <div className={`absolute inset-0 flex items-center justify-center bg-black/40 transition-all z-10 ${isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'}`}>
+                            <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform cursor-pointer">
+                                {isPlaying ? (
+                                    <Pause size={40} className="text-white fill-white" />
+                                ) : (
+                                    <Play size={40} className="text-white fill-white ml-2" />
+                                )}
                             </div>
                         </div>
                         {/* Video Tag */}
                         <video
+                            ref={videoRef}
                             className="w-full h-full object-cover"
                             poster={content.posterUrl}
                             key={content.videoUrl} // Force reload on change
+                            onPlay={() => setIsPlaying(true)}
+                            onPause={() => setIsPlaying(false)}
                         >
                             {content.videoUrl && <source src={content.videoUrl} type="video/mp4" />}
                         </video>
                         {!content.videoUrl && (
-                            <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center">
+                            <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs text-slate-300 text-center z-20">
                                 Video tutorial for {content.title} will appear here.
                             </div>
                         )}
