@@ -119,7 +119,7 @@ export const supportData: Record<string, SupportContent> = {
     },
     "oshl-07": {
         title: "OSHL-07 Support Guide",
-        videoUrl: "/videos/OSHL-07.mp",
+        videoUrl: "/videos/OSHL-07.mp4",
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Official support page for the Ovlox OSHL-07 series hotel locks.",
         steps: [
