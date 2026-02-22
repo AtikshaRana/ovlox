@@ -25,6 +25,7 @@ export default function FeatureTabs() {
       .replace(/\s+/g, "-"); // Replace spaces with hyphens
   };
 
+
   const data = [
     {
       title: "Hardware Issues & Repairs",
