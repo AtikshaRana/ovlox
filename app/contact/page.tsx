@@ -15,6 +15,8 @@ const teamMembers = [
 ];
 
 export default function ContactPage() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -22,10 +24,32 @@ export default function ContactPage() {
         message: "",
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert("Thank you for your message! Our team will get back to you shortly.");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setIsSubmitting(true);
+        setSubmitStatus("idle");
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSubmitStatus("success");
+                setFormData({ name: "", email: "", subject: "", message: "" });
+            } else {
+                setSubmitStatus("error");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setSubmitStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -99,12 +123,32 @@ export default function ContactPage() {
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     ></textarea>
                                 </div>
+                                {submitStatus === "success" && (
+                                    <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-2xl text-center text-sm">
+                                        Your message has been sent successfully! We&apos;ll get back to you soon.
+                                    </div>
+                                )}
+                                {submitStatus === "error" && (
+                                    <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 p-4 rounded-2xl text-center text-sm">
+                                        Something went wrong. Please try again later.
+                                    </div>
+                                )}
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-bold py-5 rounded-2xl shadow-xl hover:shadow-[#22598e]/20 transform hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-bold py-5 rounded-2xl shadow-xl hover:shadow-[#22598e]/20 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
                                 >
-                                    <Send size={20} />
-                                    Send Message
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send size={20} />
+                                            Send Message
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         </div>
