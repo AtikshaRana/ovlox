@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["ovloxindia.com"], // add your domain here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ovloxindia.com",
+      },
+    ],
   },
 };
 
