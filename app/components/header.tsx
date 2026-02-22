@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Phone } from "lucide-react";
 
 export default function Header() {
@@ -10,16 +11,18 @@ export default function Header() {
           items-left sm:items-center 
           justify-between gap-4 md:gap-0
         ">
-          
+
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Image
-              src="/logo.png"
-              alt="Ovlox Logo"
-              width={180}
-              height={180}
-              className="object-contain w-[150px] md:w-[180px]"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Ovlox Logo"
+                width={180}
+                height={180}
+                className="object-contain w-[150px] md:w-[180px] cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Support Section */}
