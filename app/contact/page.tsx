@@ -40,23 +40,60 @@ export default function ContactPage() {
 
                             {/* Main Contact Cards */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors group">
+                                <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors group flex flex-col h-full">
                                     <div className="w-12 h-12 bg-[#22598e]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                         <Phone className="text-[#3ca0f0]" size={24} />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">Call Us</h3>
-                                    <a href="tel:+918868830011" className="text-slate-400 hover:text-white transition-colors">
-                                        +91 8868830011
-                                    </a>
+                                    <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
+                                    <div className="space-y-4 flex-grow">
+                                        <div className="space-y-1">
+                                            <p className="text-xs font-semibold text-[#3ca0f0] uppercase tracking-wider">Direct Line</p>
+                                            <a href="tel:+918868830011" className="text-lg text-slate-300 hover:text-white transition-colors block">
+                                                +91 8868830011
+                                            </a>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p className="text-xs font-semibold text-[#3ca0f0] uppercase tracking-wider">IVR (Sales & Support)</p>
+                                            <a href="tel:+918048620284" className="text-lg text-slate-300 hover:text-white transition-colors block">
+                                                +91 80486 20284
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className="mt-8">
+                                        <a
+                                            href="https://crm.ovloxindia.com/forms/ticket"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 bg-[#22598e]/20 hover:bg-[#22598e]/40 border border-[#22598e]/30 px-4 py-2 rounded-xl text-sm font-medium transition-all"
+                                        >
+                                            <span className="text-lg">🛠</span> Raise Support Ticket
+                                        </a>
+                                    </div>
                                 </div>
-                                <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors group">
+                                <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors group flex flex-col h-full">
                                     <div className="w-12 h-12 bg-[#22598e]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                         <Mail className="text-[#3ca0f0]" size={24} />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">Email Us</h3>
-                                    <a href="mailto:support@ovloxindia.com" className="text-slate-400 hover:text-white transition-colors">
-                                        support@ovloxindia.com
-                                    </a>
+                                    <h3 className="text-xl font-bold mb-4">Email Us</h3>
+                                    <div className="space-y-4 flex-grow">
+                                        <div className="space-y-1">
+                                            <p className="text-xs font-semibold text-[#3ca0f0] uppercase tracking-wider">Official Support</p>
+                                            <a href="mailto:support@ovloxindia.com" className="text-lg text-slate-300 hover:text-white transition-colors block">
+                                                support@ovloxindia.com
+                                            </a>
+                                        </div>
+                                        <p className="text-sm text-slate-500 italic mt-2">
+                                            Always mention your order ID or device model for faster assistance.
+                                        </p>
+                                    </div>
+                                    <div className="mt-8 mt-auto">
+                                        <a
+                                            href="mailto:support@ovloxindia.com"
+                                            className="inline-flex items-center gap-2 bg-[#22598e]/20 hover:bg-[#22598e]/40 border border-[#22598e]/30 px-4 py-2 rounded-xl text-sm font-medium transition-all"
+                                        >
+                                            <Mail size={16} /> Send an Email
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
