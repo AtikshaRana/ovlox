@@ -79,23 +79,31 @@ function VideoPlayer({ videoUrl, posterUrl, title }: VideoPlayerProps) {
 export default function SupportDetailPage() {
     const { slug } = useParams();
     const router = useRouter();
-    const [content, setContent] = useState<SupportContent>(defaultSupportContent);
+
+    // Initialize content immediately if slug exists to avoid "flash" of default data
+    const [content, setContent] = useState<SupportContent>(() => {
+        if (slug) {
+            const mappedContent = supportData[slug as string];
+            if (mappedContent) return mappedContent;
+
+            // Fallback for unknown slugs
+            const readableTitle = (slug as string)
+                .split("-")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+            return {
+                ...defaultSupportContent,
+                title: readableTitle
+            };
+        }
+        return defaultSupportContent;
+    });
 
     useEffect(() => {
         if (slug) {
             const mappedContent = supportData[slug as string];
             if (mappedContent) {
                 setContent(mappedContent);
-            } else {
-                // Fallback: Generate a title if not in data
-                const readableTitle = (slug as string)
-                    .split("-")
-                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                    .join(" ");
-                setContent({
-                    ...defaultSupportContent,
-                    title: readableTitle
-                });
             }
         }
     }, [slug]);
@@ -124,34 +132,32 @@ export default function SupportDetailPage() {
                         <span>Last Updated: Feb 2026</span>
                     </div>
 
-                    {/* Videos Section */}
-                    {content.videos && content.videos.length > 0 ? (
-                        <div className="space-y-10">
-                            {content.videos.map((vid, idx) => (
-                                <VideoPlayer
-                                    key={idx}
-                                    title={vid.title}
-                                    videoUrl={vid.url}
-                                    posterUrl={content.posterUrl}
-                                />
-                            ))}
-                        </div>
-                    ) : content.videoUrl ? (
-                        <VideoPlayer
-                            title={content.title}
-                            videoUrl={content.videoUrl}
-                            posterUrl={content.posterUrl}
-                        />
-                    ) : null}
+                    {/* Videos Section - Hidden if PDF is present */}
+                    {!content.pdfUrl && (
+                        content.videos && content.videos.length > 0 ? (
+                            <div className="space-y-10">
+                                {content.videos.map((vid, idx) => (
+                                    <VideoPlayer
+                                        key={idx}
+                                        title={vid.title}
+                                        videoUrl={vid.url}
+                                        posterUrl={content.posterUrl}
+                                    />
+                                ))}
+                            </div>
+                        ) : content.videoUrl ? (
+                            <VideoPlayer
+                                title={content.title}
+                                videoUrl={content.videoUrl}
+                                posterUrl={content.posterUrl}
+                            />
+                        ) : null
+                    )}
 
                     {/* PDF Document Section */}
                     {content.pdfUrl && (
-                        <div className="mt-10">
-                            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-                                <span className="w-1.5 h-6 bg-[#3ca0f0] rounded-full"></span>
-                                Policy Document
-                            </h3>
-                            <div className="w-full h-[600px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 backdrop-blur-sm">
+                        <div className="mt-6">
+                            <div className="w-full h-[800px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 backdrop-blur-sm">
                                 <iframe
                                     src={`${content.pdfUrl}#toolbar=0`}
                                     className="w-full h-full border-none"
@@ -172,46 +178,48 @@ export default function SupportDetailPage() {
                     )}
                 </div>
 
-                {/* Summary Content */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="md:col-span-2 space-y-8">
-                        <section className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-xl">
-                            <h2 className="text-2xl font-bold mb-4 text-white">Summary</h2>
-                            <p className="text-slate-300 leading-relaxed mb-8">
-                                {content.summary}
-                            </p>
+                {/* Summary Content - Hidden if PDF is present */}
+                {!content.pdfUrl && (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="md:col-span-2 space-y-8">
+                            <section className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-xl">
+                                <h2 className="text-2xl font-bold mb-4 text-white">Summary</h2>
+                                <p className="text-slate-300 leading-relaxed mb-8">
+                                    {content.summary}
+                                </p>
 
-                            <h3 className="text-lg font-semibold text-[#3ca0f0] mb-6 flex items-center gap-2">
-                                <span className="w-1.5 h-6 bg-[#3ca0f0] rounded-full"></span>
-                                Implementation Steps
-                            </h3>
+                                <h3 className="text-lg font-semibold text-[#3ca0f0] mb-6 flex items-center gap-2">
+                                    <span className="w-1.5 h-6 bg-[#3ca0f0] rounded-full"></span>
+                                    Implementation Steps
+                                </h3>
 
-                            <div className="space-y-6">
-                                {content.steps.map((step, index) => (
-                                    <div key={index} className="flex gap-4 items-start group">
-                                        <div className="w-10 h-10 rounded-xl bg-[#22598e]/30 border border-[#22598e]/50 flex items-center justify-center shrink-0 font-bold text-[#3ca0f0] group-hover:bg-[#22598e] transition-colors">
-                                            {index + 1}
+                                <div className="space-y-6">
+                                    {content.steps.map((step, index) => (
+                                        <div key={index} className="flex gap-4 items-start group">
+                                            <div className="w-10 h-10 rounded-xl bg-[#22598e]/30 border border-[#22598e]/50 flex items-center justify-center shrink-0 font-bold text-[#3ca0f0] group-hover:bg-[#22598e] transition-colors">
+                                                {index + 1}
+                                            </div>
+                                            <div className="pt-2">
+                                                <p className="text-slate-300 group-hover:text-white transition-colors">{step}</p>
+                                            </div>
                                         </div>
-                                        <div className="pt-2">
-                                            <p className="text-slate-300 group-hover:text-white transition-colors">{step}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
+                            </section>
+                        </div>
+
+                        {/* Sidebar / Related */}
+                        <div className="space-y-6">
+                            <div className="bg-gradient-to-br from-[#22598e] to-[#101828] p-8 rounded-3xl border border-white/20 shadow-xl">
+                                <h3 className="text-xl font-bold mb-4">Need Help?</h3>
+                                <p className="text-slate-200 text-sm mb-6">Our technical team is available to assist you with any advanced queries regarding {content.title}.</p>
+                                <Link href="/contact" className="block w-full text-center py-3 bg-white text-[#101828] font-bold rounded-xl hover:bg-slate-200 transition-colors">
+                                    Contact Support
+                                </Link>
                             </div>
-                        </section>
-                    </div>
-
-                    {/* Sidebar / Related */}
-                    <div className="space-y-6">
-                        <div className="bg-gradient-to-br from-[#22598e] to-[#101828] p-8 rounded-3xl border border-white/20 shadow-xl">
-                            <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-                            <p className="text-slate-200 text-sm mb-6">Our technical team is available to assist you with any advanced queries regarding {content.title}.</p>
-                            <Link href="/contact" className="block w-full text-center py-3 bg-white text-[#101828] font-bold rounded-xl hover:bg-slate-200 transition-colors">
-                                Contact Support
-                            </Link>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </main>
     );

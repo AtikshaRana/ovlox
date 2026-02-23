@@ -14,11 +14,12 @@ export interface SupportContent {
 }
 
 export const supportData: Record<string, SupportContent> = {
-    "handle-issue-free-loose-handle": {
-        title: "Handle Issue (Free / Loose Handle)",
+    "handle-free-stuck-loose-issues": {
+        title: "Handle Free, Stuck & Loose Issues",
+        pdfUrl: "/hardware-issues/Handle-Free-Stuck-Loose-Issue.pdf",
         videoUrl: "", // Add actual video URL when available
         posterUrl: "/HardwareIssue.jpg",
-        summary: "This guide explains how to fix a loose or free-spinning handle on your Ovlox smart lock. This common issue is usually caused by a loose set screw or internal alignment.",
+        summary: "Comprehensive guide addressing handle-related hardware issues including free-spinning, stuck, or loose handles. This is a common part of our hardware-issues support collection.",
         steps: [
             "Check the small hex screw on the underside of the handle.",
             "Tighten it using the provided Allen key.",
@@ -38,24 +39,12 @@ export const supportData: Record<string, SupportContent> = {
             "Follow the app pairing instructions to sync with the central system."
         ]
     },
-    // Hardware Issues
-    "handle-issue-stiff-not-free-handle": {
-        title: "Handle Issue (Stiff / Not Free Handle)",
-        videoUrl: "",
-        posterUrl: "/HardwareIssue.jpg",
-        summary: "If your lock handle feels stiff or doesn't return to its original position, follow these maintenance steps.",
-        steps: [
-            "Inspect the handle for any physical obstructions.",
-            "Apply a small amount of lubricant to the handle pivot if necessary.",
-            "Check if the handle spring is correctly seated.",
-            "Consult the manual if the stiffness persists after cleaning."
-        ]
-    },
     "how-to-reset-the-pcb": {
         title: "How to Reset the PCB",
+        pdfUrl: "/hardware-issues/PCB-RESET.pdf",
         videoUrl: "",
         posterUrl: "/HardwareIssue.jpg",
-        summary: "A PCB reset can resolve connectivity or software glitches. Follow these steps to safely reset your lock's internal controller.",
+        summary: "A PCB reset can resolve connectivity or software glitches. This guide is part of our hardware-issues troubleshooting resources safely resetting your lock's internal controller.",
         steps: [
             "Locate the reset button (usually near the battery compartment or on the main PCB).",
             "Press and hold the button for 10 seconds until you hear a beep.",
@@ -65,9 +54,10 @@ export const supportData: Record<string, SupportContent> = {
     },
     "pcb-not-working": {
         title: "PCB Not Working",
+        pdfUrl: "/hardware-issues/PCB-NOT-WORK.pdf",
         videoUrl: "",
         posterUrl: "/HardwareIssue.jpg",
-        summary: "Troubleshooting steps for when the lock's main controller (PCB) is unresponsive.",
+        summary: "Troubleshooting steps for when the lock's main controller (PCB) is unresponsive. This documentation covers critical hardware-issues for PCB maintenance.",
         steps: [
             "Ensure the batteries are fresh and correctly oriented.",
             "Check the connection cables between the front and back panels.",
@@ -179,9 +169,10 @@ export const supportData: Record<string, SupportContent> = {
     // More Hardware Issues
     "lock-fitting-issue-door-below-35mm": {
         title: "Lock Fitting Issue (Door Below 35mm)",
+        pdfUrl: "/hardware-issues/LOCK- FITTING-ISSUE-BELOW-35.MM.pdf",
         videoUrl: "",
         posterUrl: "/HardwareIssue.jpg",
-        summary: "How to handle lock installation on doors with thickness less than 35mm.",
+        summary: "Step-by-step guide for hardware-issues related to lock installation on doors with thickness less than 35mm.",
         steps: [
             "Measure the door thickness accurately.",
             "Use the provided spacers to adjust for thinner doors.",
@@ -191,9 +182,10 @@ export const supportData: Record<string, SupportContent> = {
     },
     "lock-body-rod-fitting-issue": {
         title: "Lock Body Rod Fitting Issue",
+        pdfUrl: "/hardware-issues/LOCK-BODY-ROD-FITTING-ISSUES.pdf",
         videoUrl: "/videos/OSHL01-lock-body.mp4",
         posterUrl: "/HardwareIssue.jpg",
-        summary: "Troubleshooting rod alignment and fitting issues within the lock body.",
+        summary: "Troubleshooting rod alignment and fitting hardware-issues within the lock body.",
         steps: [
             "Identify the rod alignment within the mortise.",
             "Check for any bends or obstructions in the rod path.",
@@ -205,7 +197,7 @@ export const supportData: Record<string, SupportContent> = {
         title: "Correct Method for Lock Installation",
         videoUrl: "",
         posterUrl: "/HardwareIssue.jpg",
-        summary: "The standard recommended procedure for installing Ovlox smart locks.",
+        summary: "The standard recommended procedure for installing Ovlox smart locks. This guide covers the essential steps for resolving general hardware-issues during installation.",
         steps: [
             "Prepare the door using the provided template.",
             "Install the lock body/mortise first.",
