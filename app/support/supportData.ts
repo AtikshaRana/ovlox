@@ -7,6 +7,7 @@ export interface SupportContent {
     title: string;
     videoUrl?: string; // Kept for legacy/single video support
     videos?: SupportVideo[];
+    pdfUrl?: string;
     posterUrl: string;
     summary: string;
     steps: string[];
@@ -234,6 +235,55 @@ export const supportData: Record<string, SupportContent> = {
             "Log in to the Ovlox Support Portal.",
             "Enter your Tracking ID in the 'Order Search' field.",
             "Real-time status updates will be displayed."
+        ]
+    },
+    // AMC Plans
+    "1-month-plan-starting-at-999month": {
+        title: "1-Month Plan – Starting at ₹999/month",
+        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        posterUrl: "/AMC.jpg",
+        summary: "Detailed overview of the 1-month AMC subscription plan. This plan provides comprehensive support and maintenance for a single month.",
+        steps: [
+            "Review the AMC terms and conditions in the attached PDF.",
+            "Select the plan and complete the payment process.",
+            "Our team will contact you for the initial site inspection.",
+            "Ongoing support coverage starts immediately after activation."
+        ]
+    },
+    "3-month-plan-starting-at-833month": {
+        title: "3-Month Plan – Starting at ₹833/month",
+        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        posterUrl: "/AMC.jpg",
+        summary: "Quarterly AMC plan offering a balance of value and coverage. Includes regular health checks for your Ovlox smart locks.",
+        steps: [
+            "Download the AMC document for plan details.",
+            "Quarterly maintenance visits from our technical experts.",
+            "Priority support for any hardware or software issues.",
+            "Consumables and spare parts coverage as per the policy."
+        ]
+    },
+    "6-month-plan-starting-at-666month": {
+        title: "6-Month Plan – Starting at ₹666/month",
+        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        posterUrl: "/AMC.jpg",
+        summary: "Half-yearly AMC plan designed for small to medium setups. Ensures your security system remains in peak condition.",
+        steps: [
+            "Access the detailed AMC policy via the PDF viewer.",
+            "Bi-monthly inspection and cleaning of all registered locks.",
+            "Free firmware updates and software troubleshooting.",
+            "Discounted rates for out-of-warranty hardware replacements."
+        ]
+    },
+    "12-month-plan-starting-at-583month": {
+        title: "12-Month Plan – Starting at ₹583/month",
+        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        posterUrl: "/AMC.jpg",
+        summary: "Best value annual AMC plan. Provides peace of mind with year-round maintenance and premium support services.",
+        steps: [
+            "Full annual membership benefits outlined in the PDF.",
+            "Scheduled quarterly maintenance and on-call support.",
+            "Comprehensive coverage for PCB, motors, and sensors.",
+            "Dedicated account manager for corporate or large-scale installations."
         ]
     }
 };

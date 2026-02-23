@@ -126,7 +126,7 @@ export default function SupportDetailPage() {
 
                     {/* Videos Section */}
                     {content.videos && content.videos.length > 0 ? (
-                        <div className="space-y-6">
+                        <div className="space-y-10">
                             {content.videos.map((vid, idx) => (
                                 <VideoPlayer
                                     key={idx}
@@ -136,12 +136,39 @@ export default function SupportDetailPage() {
                                 />
                             ))}
                         </div>
-                    ) : (
+                    ) : content.videoUrl ? (
                         <VideoPlayer
                             title={content.title}
-                            videoUrl={content.videoUrl || ""}
+                            videoUrl={content.videoUrl}
                             posterUrl={content.posterUrl}
                         />
+                    ) : null}
+
+                    {/* PDF Document Section */}
+                    {content.pdfUrl && (
+                        <div className="mt-10">
+                            <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                                <span className="w-1.5 h-6 bg-[#3ca0f0] rounded-full"></span>
+                                Policy Document
+                            </h3>
+                            <div className="w-full h-[600px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 backdrop-blur-sm">
+                                <iframe
+                                    src={`${content.pdfUrl}#toolbar=0`}
+                                    className="w-full h-full border-none"
+                                    title="PDF Document"
+                                />
+                            </div>
+                            <div className="mt-4 flex justify-end">
+                                <a
+                                    href={content.pdfUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-[#3ca0f0] hover:underline flex items-center gap-1"
+                                >
+                                    Open PDF in New Tab ↗
+                                </a>
+                            </div>
+                        </div>
                     )}
                 </div>
 

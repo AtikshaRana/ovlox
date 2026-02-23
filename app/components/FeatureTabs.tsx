@@ -302,7 +302,7 @@ export default function FeatureTabs() {
 
                   {/* AMC download button */}
                   <a
-                    href="/AMCPLANS.docx"
+                    href="/amc-pdf/AMC-DOCUMENT.pdf"
                     download
                     className="w-full text-center px-4 py-2 mt-4 bg-gradient-to-r from-[#22598e] to-[#3ca0f0] text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:from-[#1b416d] hover:to-[#3392e0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#22598e]"
                   >
