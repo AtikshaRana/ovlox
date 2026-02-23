@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         // Send actual email using Resend
         const { data, error } = await resend.emails.send({
             from: "Ovlox Contact <onboarding@resend.dev>", // Resend default for unverified domains
-            to: ["atiksharana2002@gmail.com"], // Your test email
+            to: ["support@ovloxindia.com"], // Your real support email
             subject: `Contact Form: ${subject}`,
             replyTo: email,
             html: `

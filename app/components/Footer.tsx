@@ -32,8 +32,8 @@ export default function Footer() {
             </a>
           </p>
           <p>
-            <a href="mailto:atiksharana2002@gmail.com" className="hover:underline">
-              atiksharana2002@gmail.com
+            <a href="mailto:support@ovloxindia.com" className="hover:underline">
+              support@ovloxindia.com
             </a>
           </p>
         </div>
