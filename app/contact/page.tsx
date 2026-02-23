@@ -1,23 +1,8 @@
 "use client";
 
-import Header from "../components/header";
-import Footer from "../components/Footer";
-import { Mail, Phone, MapPin, Send, Clock, Globe } from "lucide-react";
-
-const teamMembers = [
-    { name: "Deependra Singh Rana", email: "deependra@ovloxindia.com" },
-    { name: "Akash Kumar", email: "akash@ovloxindia.com" },
-    { name: "Ankan Sharma", email: "ankan@ovloxindia.com" },
-    { name: "Anuj Pratap Singh", email: "anuj@ovloxindia.com" },
-    { name: "Harsh Kumar", email: "harsh@ovloxindia.com" },
-    { name: "Pushpendra Singh", email: "pushpendra@ovloxindia.com" },
-];
-
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-[#101828] text-white selection:bg-[#22598e] selection:text-white">
-            <Header />
-
+        <div className="min-h-screen bg-[#101828] text-white selection:bg-[#22598e] selection:text-white pt-20">
             {/* Hero Section */}
             <section className="relative py-24 overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#22598e]/20 to-transparent pointer-none"></div>
