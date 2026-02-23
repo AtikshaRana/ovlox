@@ -14,7 +14,7 @@ export async function POST(req: Request) {
         }
 
         // Simulate sending an email
-        console.log("Sending email to support@ovloxindia.com...");
+        console.log("Sending email to atiksharana2002@gmail.com...");
         console.log(`From: ${name} <${email}>`);
         console.log(`Subject: ${subject}`);
         console.log(`Message: ${message}`);

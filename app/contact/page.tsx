@@ -172,8 +172,8 @@ export default function ContactPage() {
                                         <Mail className="text-[#3ca0f0]" size={24} />
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">Email Us</h3>
-                                    <a href="mailto:support@ovloxindia.com" className="text-slate-400 hover:text-white transition-colors">
-                                        support@ovloxindia.com
+                                    <a href="mailto:atiksharana2002@gmail.com" className="text-slate-400 hover:text-white transition-colors">
+                                        atiksharana2002@gmail.com
                                     </a>
                                 </div>
                             </div>
