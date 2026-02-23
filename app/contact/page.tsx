@@ -1,5 +1,16 @@
 "use client";
 
+import { Mail, Phone, MapPin, Send, Clock, Globe } from "lucide-react";
+
+const teamMembers = [
+    { name: "Deependra Singh Rana", email: "deependra@ovloxindia.com" },
+    { name: "Akash Kumar", email: "akash@ovloxindia.com" },
+    { name: "Ankan Sharma", email: "ankan@ovloxindia.com" },
+    { name: "Anuj Pratap Singh", email: "anuj@ovloxindia.com" },
+    { name: "Harsh Kumar", email: "harsh@ovloxindia.com" },
+    { name: "Pushpendra Singh", email: "pushpendra@ovloxindia.com" },
+];
+
 export default function ContactPage() {
     return (
         <div className="min-h-screen bg-[#101828] text-white selection:bg-[#22598e] selection:text-white pt-20">
@@ -119,8 +130,6 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
-
-            <Footer />
         </div>
     );
 }
