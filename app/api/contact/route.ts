@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+// Initialize Resend with API Key from environment variables
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
     try {
@@ -13,18 +17,29 @@ export async function POST(req: Request) {
             );
         }
 
-        // Simulate sending an email
-        console.log("Sending email to atiksharana2002@gmail.com...");
-        console.log(`From: ${name} <${email}>`);
-        console.log(`Subject: ${subject}`);
-        console.log(`Message: ${message}`);
+        // Send actual email using Resend
+        const { data, error } = await resend.emails.send({
+            from: "Ovlox Contact <onboarding@resend.dev>", // Resend default for unverified domains
+            to: ["atiksharana2002@gmail.com"], // Your test email
+            subject: `Contact Form: ${subject}`,
+            replyTo: email,
+            html: `
+                <h2>New Contact Form Submission</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Subject:</strong> ${subject}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message.replace(/\n/g, '<br/>')}</p>
+            `,
+        });
 
-        // In a real scenario, you would use Nodemailer, Resend, or another service here.
-        // For now, we simulate a successful operation.
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        if (error) {
+            console.error("Resend error:", error);
+            return NextResponse.json({ error: error.message }, { status: 500 });
+        }
 
         return NextResponse.json(
-            { message: "Message sent successfully!" },
+            { message: "Message sent successfully!", id: data?.id },
             { status: 200 }
         );
     } catch (error) {
