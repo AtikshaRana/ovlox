@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, Ticket } from "lucide-react";
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
         <div className="
           flex flex-col sm:flex-row 
           items-left sm:items-center 
-          justify-between gap-4 md:gap-0
+          justify-between gap-6 md:gap-0
         ">
 
           {/* Logo */}
@@ -26,25 +26,42 @@ export default function Header() {
           </div>
 
           {/* Support Section */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
 
-            {/* Icon */}
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
-              <Phone size={22} className="text-[#20425a]" />
+            {/* Raise Ticket */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
+                <Ticket size={22} className="text-[#20425a]" />
+              </div>
+              <div className="leading-tight">
+                <p className="text-sm text-[#20425a] opacity-80">Online Portal</p>
+                <a
+                  href="https://crm.ovloxindia.com/forms/ticket"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-[#20425a] hover:underline"
+                >
+                  Raise Support Ticket
+                </a>
+              </div>
             </div>
 
-            {/* Text */}
-            <div className="leading-tight text-left">
-              <p className="text-sm text-[#20425a] opacity-80">
-                Need help?
-              </p>
-
-              <a
-                href="tel:+918868830011"
-                className="text-lg font-semibold text-[#20425a] hover:underline"
-              >
-                Call Support Team
-              </a>
+            {/* Call Support */}
+            <div className="flex items-center gap-3 border-l-0 sm:border-l sm:border-[#20425a]/10 sm:pl-8">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
+                <Phone size={22} className="text-[#20425a]" />
+              </div>
+              <div className="leading-tight text-left">
+                <p className="text-sm text-[#20425a] opacity-80">
+                  Need help?
+                </p>
+                <a
+                  href="tel:+918868830011"
+                  className="text-lg font-semibold text-[#20425a] hover:underline"
+                >
+                  Call Support Team
+                </a>
+              </div>
             </div>
 
           </div>
