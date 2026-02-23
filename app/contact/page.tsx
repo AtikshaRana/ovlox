@@ -3,7 +3,6 @@
 import Header from "../components/header";
 import Footer from "../components/Footer";
 import { Mail, Phone, MapPin, Send, Clock, Globe } from "lucide-react";
-import { useState } from "react";
 
 const teamMembers = [
     { name: "Deependra Singh Rana", email: "deependra@ovloxindia.com" },
@@ -101,48 +100,5 @@ export default function ContactPage() {
 
             <Footer />
         </div>
-    );
-}
-
-{/* Support Team Directory */ }
-<div className="bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2.5rem]">
-    <div className="flex items-center gap-4 mb-8">
-        <Globe className="text-[#3ca0f0]" size={28} />
-        <h3 className="text-2xl font-bold">Support Directory</h3>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
-        {teamMembers.map((member, idx) => (
-            <div key={idx} className="flex flex-col">
-                <span className="font-semibold text-white">{member.name}</span>
-                <a href={`mailto:${member.email}`} className="text-sm text-slate-500 hover:text-[#3ca0f0] transition-colors">
-                    {member.email}
-                </a>
-            </div>
-        ))}
-    </div>
-    <div className="mt-10 pt-8 border-t border-white/10 flex items-center gap-4 text-slate-400">
-        <Clock size={20} />
-        <span className="text-sm">Response time: Usually within 2-4 hours</span>
-    </div>
-</div>
-
-{/* Office Location placeholder */ }
-<div className="bg-gradient-to-br from-[#22598e]/10 to-transparent border border-white/10 p-8 rounded-3xl flex items-center gap-6">
-    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center shrink-0">
-        <MapPin className="text-[#3ca0f0]" size={32} />
-    </div>
-    <div>
-        <h4 className="font-bold text-lg">Headquarters</h4>
-        <p className="text-slate-400 text-sm">Ovlox India, Premium Smart Lock Solutions</p>
-    </div>
-</div>
-
-                        </div >
-                    </div >
-                </div >
-            </section >
-
-    <Footer />
-        </div >
     );
 }
