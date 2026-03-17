@@ -244,7 +244,7 @@ export const supportData: Record<string, SupportContent> = {
     },
     "3-month-plan-starting-at-833month": {
         title: "3-Month Plan – Starting at ₹833/month",
-        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        pdfUrl: "/amc-pdf/AMC-FOR-3-MONTH.pdf",
         posterUrl: "/AMC.jpg",
         summary: "Quarterly AMC plan offering a balance of value and coverage. Includes regular health checks for your Ovlox smart locks.",
         steps: [
@@ -256,7 +256,7 @@ export const supportData: Record<string, SupportContent> = {
     },
     "6-month-plan-starting-at-666month": {
         title: "6-Month Plan – Starting at ₹666/month",
-        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+        pdfUrl: "/amc-pdf/AMC-FOR-6-MONTHS.pdf",
         posterUrl: "/AMC.jpg",
         summary: "Half-yearly AMC plan designed for small to medium setups. Ensures your security system remains in peak condition.",
         steps: [
@@ -266,9 +266,9 @@ export const supportData: Record<string, SupportContent> = {
             "Discounted rates for out-of-warranty hardware replacements."
         ]
     },
-    "12-month-plan-starting-at-583month": {
-        title: "12-Month Plan – Starting at ₹583/month",
-        pdfUrl: "/amc-pdf/AMC-FOR-1-MONTH.pdf",
+    "1-year-plan-starting-at-583month": {
+        title: "1 Year Plan – Starting at ₹583/month",
+        pdfUrl: "/amc-pdf/AMC-FOR-1-YEAR.pdf",
         posterUrl: "/AMC.jpg",
         summary: "Best value annual AMC plan. Provides peace of mind with year-round maintenance and premium support services.",
         steps: [
