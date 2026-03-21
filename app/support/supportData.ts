@@ -17,7 +17,7 @@ export const supportData: Record<string, SupportContent> = {
     "handle-free-stuck-loose-issues": {
         title: "Handle Free, Stuck & Loose Issues",
         pdfUrl: "/hardware-issues/Handle-Free-Stuck-Loose-Issue.pdf",
-        videoUrl: "", // Add actual video URL when available
+        videoUrl: "/videos/Handle free and stuck issue last.MP4",
         posterUrl: "/HardwareIssue.jpg",
         summary: "Comprehensive guide addressing handle-related hardware issues including free-spinning, stuck, or loose handles. This is a common part of our hardware-issues support collection.",
         steps: [
@@ -28,8 +28,11 @@ export const supportData: Record<string, SupportContent> = {
         ]
     },
     "oshl-03": {
-        title: "OSHL-03 Lock Body",
-        videoUrl: "/videos/OSHL-03.mp4",
+        title: "OSHL-03 Support Guide",
+        videos: [
+            { title: "OSHL-03 Handle Direction", url: "/videos/Oshl-03 handle Direction LQ.MP4" },
+            { title: "OSHL-03 Lock Body Direction", url: "/videos/Oshl-03 lock body Direction LQ.MP4" }
+        ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "The OSHL-03 is a premium hotel smart lock. This guide covers setup, battery replacement, and standard troubleshooting for this model.",
         steps: [
@@ -42,7 +45,7 @@ export const supportData: Record<string, SupportContent> = {
     "how-to-reset-the-pcb": {
         title: "How to Reset the PCB",
         pdfUrl: "/hardware-issues/PCB-RESET.pdf",
-        videoUrl: "",
+        videoUrl: "/videos/How to Reset Pcb LQ.MP4",
         posterUrl: "/HardwareIssue.jpg",
         summary: "A PCB reset can resolve connectivity or software glitches. This guide is part of our hardware-issues troubleshooting resources safely resetting your lock's internal controller.",
         steps: [
@@ -69,8 +72,8 @@ export const supportData: Record<string, SupportContent> = {
     "oshl-01": {
         title: "OSHL-01 Support Guide",
         videos: [
-            { title: "OSHL-01 Handle Direction", url: "/videos/OSHL-01.mp4" },
-            { title: "OSHL-01 Lock Body", url: "/videos/OSHL01-lock-body.mp4" }
+            { title: "OSHL-01 Handle Direction", url: "/videos/Oshl-01 handle Direction LQ.MP4" },
+            { title: "OSHL-01 Lock Body Direction", url: "/videos/Oshl-01 lock body Direction LQ.MP4" }
         ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Comprehensive guide for the OSHL-01 hotel lock model. This guide covers the main setup and specific lock body installation.",
@@ -95,7 +98,10 @@ export const supportData: Record<string, SupportContent> = {
     },
     "oshl-05": {
         title: "OSHL-05 Support Guide",
-        videoUrl: "/videos/OSHL-05.mp4",
+        videos: [
+            { title: "OSHL-05 Handle Direction", url: "/videos/Oshl-05 handle Direction LQ.MP4" },
+            { title: "OSHL-05 Lock Body Direction", url: "/videos/Oshl-05 lock body Direction LQ.MP4" }
+        ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Support resources for the OSHL-05 advanced hotel security lock.",
         steps: [
@@ -107,7 +113,10 @@ export const supportData: Record<string, SupportContent> = {
     },
     "oshl-06": {
         title: "OSHL-06 Support Guide",
-        videoUrl: "/videos/OSHL-06.mp4",
+        videos: [
+            { title: "OSHL-06 Handle Direction", url: "/videos/Oshl-06 handle Direction LQ.MP4" },
+            { title: "OSHL-06 Lock Body Direction", url: "/videos/Oshl-06 lock body Direction LQ.MP4" }
+        ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Technical documentation and video tutorials for the OSHL-06 model.",
         steps: [
@@ -119,7 +128,9 @@ export const supportData: Record<string, SupportContent> = {
     },
     "oshl-07": {
         title: "OSHL-07 Support Guide",
-        videoUrl: "/videos/OSHL-07.mp4",
+        videos: [
+            { title: "OSHL-07 Handle Direction", url: "/videos/Oshl-07 handle Direction LQ.MP4" }
+        ],
         posterUrl: "/Ovlox-India-OSHL-01-Hotel-Smart-Door-Lock-Silver-Door.png",
         summary: "Official support page for the Ovlox OSHL-07 series hotel locks.",
         steps: [
@@ -132,7 +143,10 @@ export const supportData: Record<string, SupportContent> = {
     // Residential Locks
     "os-103": {
         title: "OS-103 Support Guide",
-        videoUrl: "",
+        videos: [
+            { title: "OS-103 Handle Direction", url: "/videos/OS-103 Handle direction LQ.MP4" },
+            { title: "OS-103 Lock Body Direction", url: "/videos/OS-103 Lock Body Direction LQ.MP4" }
+        ],
         posterUrl: "/HardwareIssue.jpg",
         summary: "Support resources for the OS-103 residential smart lock.",
         steps: [
@@ -170,7 +184,7 @@ export const supportData: Record<string, SupportContent> = {
     "lock-fitting-issue-door-below-35mm": {
         title: "Lock Fitting Issue (Door Below 35mm)",
         pdfUrl: "/hardware-issues/LOCK- FITTING-ISSUE-BELOW-35.MM.pdf",
-        videoUrl: "",
+        videoUrl: "/videos/Door below 35 mm LQ.MP4",
         posterUrl: "/HardwareIssue.jpg",
         summary: "Step-by-step guide for hardware-issues related to lock installation on doors with thickness less than 35mm.",
         steps: [
@@ -195,7 +209,7 @@ export const supportData: Record<string, SupportContent> = {
     },
     "correct-method-for-lock-installation": {
         title: "Correct Method for Lock Installation",
-        videoUrl: "",
+        videoUrl: "/videos/How to install lock in door LQ.MP4",
         posterUrl: "/HardwareIssue.jpg",
         summary: "The standard recommended procedure for installing Ovlox smart locks. This guide covers the essential steps for resolving general hardware-issues during installation.",
         steps: [
@@ -215,6 +229,40 @@ export const supportData: Record<string, SupportContent> = {
             "Create an account using your email or phone number.",
             "Turn on Bluetooth on your mobile device.",
             "Select 'Add Device' and follow the on-screen pairing steps."
+        ]
+    },
+    "guide-to-app-access": {
+        title: "Guide to App Access",
+        posterUrl: "/mobile-app.jpg",
+        summary: "General guide for accessing and setting up mobile application control for your Ovlox smart locks.",
+        steps: [
+            "Download the correct app for your lock (Smart Life for residential, TT Hotel for hotel locks).",
+            "Enable Bluetooth and location services on your smartphone.",
+            "Follow the initial registration process to create your admin account.",
+            "Begin the pairing process as described in your lock's specific guide."
+        ]
+    },
+    "guide-to-activating-locks": {
+        title: "Guide to Activating Locks",
+        videoUrl: "/videos/How to activate lock LQ.MP4",
+        posterUrl: "/mobile-app.jpg",
+        summary: "Detailed walkthrough for activating your smart lock and connecting it to the management software.",
+        steps: [
+            "Ensure the lock is properly powered with fresh batteries.",
+            "Open the mobile app and select 'Add Lock'.",
+            "Touch the keypad to wake up the lock during the search process.",
+            "Assign a name to the lock and complete the activation."
+        ]
+    },
+    "software-assitance": {
+        title: "Software Assistance",
+        posterUrl: "/SoftWareRelatedIssues.jpg",
+        summary: "Get help with software configuration and troubleshooting for Ovlox smart lock systems.",
+        steps: [
+            "Check for available firmware updates in the app settings.",
+            "Restart the application and toggle Bluetooth if connection fails.",
+            "Clear application cache or reinstall the app if issues persist.",
+            "Refer to the TT Hotel or Smart Life specific guides for advanced features."
         ]
     },
     "tracking-orders": {
